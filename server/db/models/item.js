@@ -1,7 +1,7 @@
 const Sequelize = require('sequelize')
 const db = require('../db')
 
-const Item = db.define('user', {
+const Item = db.define('item', {
   category: {
     type: Sequelize.STRING,
     allowNull: false,

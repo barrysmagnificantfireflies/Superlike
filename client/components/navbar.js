@@ -8,6 +8,7 @@ const Navbar = ({handleClick, isLoggedIn}) => (
   <div>
     <h1>Super Like</h1>
     <h2>`You can be anyone you want... ${':)'}`</h2>
+
     <nav>
       {isLoggedIn ? (
         <div>
