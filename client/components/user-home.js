@@ -6,7 +6,7 @@ import {connect} from 'react-redux'
  * COMPONENT
  */
 export const UserHome = props => {
-  const {email} = props
+  const {email, imageUrl} = props
   return (
     <div>
       <h3>Welcome {email ? email : 'Friend!!!'}</h3>
