@@ -3,12 +3,12 @@ import {createLogger} from 'redux-logger'
 import thunkMiddleware from 'redux-thunk'
 import {composeWithDevTools} from 'redux-devtools-extension'
 import {userReducer} from './user'
-import {productsRecuder} from './productList'
+import {productsReducer} from './productList'
 import {cartReducer} from './cart'
 
 const reducer = combineReducers({
   user: userReducer,
-  products: productsRecuder,
+  products: productsReducer,
   cart: cartReducer
 })
 const middleware = composeWithDevTools(
