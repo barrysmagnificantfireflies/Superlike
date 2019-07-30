@@ -7,10 +7,11 @@ import {connect} from 'react-redux'
  */
 export const UserHome = props => {
   const {email} = props
-
   return (
     <div>
-      <h3>Welcome, {email}</h3>
+      <h3>Welcome {email ? email : 'Friend!!!'}</h3>
+      <p>We are super like. We are great. We make profiles. We are fun.</p>
+      <img src="https://d2eehagpk5cl65.cloudfront.net/img/c800x450-w800-q80/uploads/2016/06/14672531046563.jpg" />
     </div>
   )
 }

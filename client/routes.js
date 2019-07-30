@@ -16,15 +16,17 @@ class Routes extends Component {
   render() {
     const {isLoggedIn} = this.props
 
+    //currently only linked to Login component as temporary until we do more
     return (
       <Switch>
         {/* Routes placed here are available to all visitors */}
         <Route path="/login" component={Login} />
         <Route path="/signup" component={Signup} />
+        <Route path="/home" component={UserHome} />
+        <Route path="/cart" component={Login} />
         {isLoggedIn && (
           <Switch>
-            {/* Routes placed here are only available after logging in */}
-            <Route path="/home" component={UserHome} />
+            <Route path="/account" component={Login} />
           </Switch>
         )}
         {/* Displays our Login component as a fallback */}
