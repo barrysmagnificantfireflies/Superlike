@@ -1,0 +1,37 @@
+Schema Design
+
+USERS
+
+username/gmail
+password
+picture or default image
+isLoggedIn
+isAdmin
+payment credentials (to be added in the future)
+
+
+ORDERS
+
+userId
+isPurchased
+
+ITEMS
+
+category
+name
+image
+price
+quantity
+description
+
+joinTable(OrderId, Item)
+
+OrderId
+ItemId
+
+Users has many ORDERS
+ORDERS belongs to USERS
+ORDERS has many ITEMS
+ITEMS have many ORDERS
+
+
