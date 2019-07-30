@@ -24,7 +24,7 @@ export const getCartThunk = id => async dispatch => {
 }
 
 //REDUCER
-export default function(cart = defaultCart, action) {
+export const cartReducer = (cart = defaultCart, action) => {
   switch (action.type) {
     case GET_CART:
       return action.cart

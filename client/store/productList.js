@@ -35,6 +35,6 @@ export const productsReducer = (products = productList, action) => {
     case GET_PRODUCTS:
       return action.products
     default:
-      return state
+      return products
   }
 }
