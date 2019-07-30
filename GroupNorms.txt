@@ -1,0 +1,40 @@
+GROUP NORMS
+
+1. Respect each other!
+2. Be responsible for your own work - and respect each other's pace.
+3. Communicate:
+  if you need help
+  if you need input
+  if you need more/less time on a task
+4. WE ARE A TEAM! WE ARE FIREFLIES!
+  We are here to work together. Let's be supportive
+5. At 2:30, we will schedule a get together to meet up and discuss what we are working on at the end of the day
+6. Document your work.
+  If you make a comment:
+    - What is the purpose?
+    - what parameters does it take?
+    - what should it return?
+7. Show up on time, and for our meetings.
+8. Follow the workflow of the group.
+9. WRITE tests for your task.
+
+
+ScrumMaster: DAY 1 and 2: Andrew
+  - monitor github process
+  - select focus for day
+  - create cards
+  - make sure we are on pace and contributing
+
+Git Guy:
+  -monitors proper git workflow
+  -always the reviewer
+  -set reminders for everyone to push
+  -periodically remind everyone to commit
+  -reminder to pull slack
+  -the merger for the day!
+
+For Today:
+ for first half of day
+
+
+GO TEAM FIREFLIES
