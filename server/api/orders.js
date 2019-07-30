@@ -28,3 +28,19 @@ router.post('/', async (req, res, next) => {
     next(error)
   }
 })
+
+router.put('/:userId', async (req, res, next) => {
+  try {
+    await Order.update(
+      {isPurchased: true},
+      {
+        where: {
+          userId: req.params.userId
+        }
+      }
+    )
+    res.sendStatus(201)
+  } catch (error) {
+    next(error)
+  }
+})
