@@ -1,6 +1,6 @@
 const router = require('express').Router()
 const {Order} = require('../db/models')
-const {isAdmin, isCorrectUser} = require('./utils')
+const {isAdmin, isCorrectUser, doesCartExist} = require('./utils')
 module.exports = router
 
 router.get('/', isAdmin, async (req, res, next) => {
@@ -26,7 +26,7 @@ router.get('/:userId/cart', isCorrectUser, async (req, res, next) => {
     const cart = await Order.findCart(req.params.userId)
     res.json(cart)
   } catch (error) {
-    next(err)
+    next(error)
   }
 })
 

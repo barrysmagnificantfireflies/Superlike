@@ -26,43 +26,55 @@ Order.findPurchaseHistory = async function(userId) {
 // not certain this makes sense
 
 Order.prototype.findTotalPrice = function() {
-  try{
+  try {
     const itemArr = this.getItems()
     let price = 0
     for (let i = 0; i < itemArr.length; i++) {
       price += parseInt(i[price] * i[quantity])
     }
     return price
-  } catch(error){
+  } catch (error) {
     console.error(error)
   }
 }
 
 Order.findCart = async function(userId) {
-  const cart = await this.findOne({
-    where: {
-      userId,
-      isPurchased: false
-    }
-  })
-  return cart
+  try {
+    const cart = await this.findOne({
+      where: {
+        userId,
+        isPurchased: false
+      }
+    })
+    return cart
+  } catch (error) {
+    console.error(error)
+  }
 }
 
 Order.checkout = async function(userId) {
-  await Order.update(
-    {isPurchased: true},
-    {
-      where: {
-        userId
+  try {
+    await Order.update(
+      {isPurchased: true},
+      {
+        where: {
+          userId
+        }
       }
-    }
-  )
+    )
+  } catch (error) {
+    console.error(error)
+  }
 }
 
 Order.newCart = async function(userId) {
-  await Order.create({
-    userId
-  })
+  try {
+    await Order.create({
+      userId
+    })
+  } catch (error) {
+    console.error(error)
+  }
 }
 
 module.exports = Order
