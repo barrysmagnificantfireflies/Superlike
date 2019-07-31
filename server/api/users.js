@@ -1,5 +1,5 @@
 const router = require('express').Router()
-const {User} = require('../db/models')
+const {User, Order} = require('../db/models')
 const {isUser} = require('./utils')
 module.exports = router
 
@@ -16,6 +16,7 @@ router.get('/', async (req, res, next) => {
     next(err)
   }
 })
+
 router.get('/:id', isUser, async (req, res, next) => {
   try {
     const user = await User.findByPk(req.params.id)
@@ -24,6 +25,7 @@ router.get('/:id', isUser, async (req, res, next) => {
     next(error)
   }
 })
+
 router.post('/', async (req, res, next) => {
   try {
     const createdUser = await User.create(req.body)
@@ -32,6 +34,7 @@ router.post('/', async (req, res, next) => {
     next(error)
   }
 })
+
 router.put('/', isUser, async (req, res, next) => {
   try {
     const putUser = await User.update(req.body)
@@ -40,6 +43,17 @@ router.put('/', isUser, async (req, res, next) => {
     next(error)
   }
 })
+
+router.put('/:userId/checkout', async (req, res, next) => {
+  try {
+    Order.checkout(req.params.userId) //flips the isPurchased value on the cart to true
+    Order.newCart(req.params.userId) //creates a new cart so that there is always a cart in the DB
+    res.sendStatus(201)
+  } catch (error) {
+    next(error)
+  }
+})
+
 router.delete('/', isUser, async (req, res, next) => {
   try {
     const destroyedUser = await User.destroy(req.body)

@@ -19,4 +19,31 @@ Order.findPurchaseHistory = async function(userId) {
   return purchase
 }
 
+Order.findCart = async function(userId) {
+  const cart = await this.findOne({
+    where: {
+      userId,
+      isPurchased: false
+    }
+  })
+  return cart
+}
+
+Order.checkout = async function(userId) {
+  await Order.update(
+    {isPurchased: true},
+    {
+      where: {
+        userId
+      }
+    }
+  )
+}
+
+Order.newCart = async function(userId) {
+  await Order.create({
+    userId
+  })
+}
+
 module.exports = Order
