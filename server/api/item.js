@@ -1,5 +1,6 @@
 const router = require('express').Router()
 const {Item} = require('../db/models')
+const isAdmin = require('./utils')
 module.exports = router
 
 router.get('/', async (req, res, next) => {
@@ -19,8 +20,7 @@ router.get('/:id', async (req, res, next) => {
     next(error)
   }
 })
-
-router.post('/', async (req, res, next) => {
+router.post('/', isAdmin, async (req, res, next) => {
   try {
     const newItem = await Item.create(req.body)
     res.json(newItem)
@@ -28,8 +28,7 @@ router.post('/', async (req, res, next) => {
     next(error)
   }
 })
-
-router.put('/', async (req, res, next) => {
+router.put('/', isAdmin, async (req, res, next) => {
   try {
     const updatedItem = await Item.update(req.body)
     res.json(updatedItem)
@@ -38,7 +37,7 @@ router.put('/', async (req, res, next) => {
   }
 })
 
-router.delete('/', async (req, res, next) => {
+router.delete('/', isAdmin, async (req, res, next) => {
   try {
     const deletedItem = await Item.destroy(req.body)
     res.json(deletedItem)

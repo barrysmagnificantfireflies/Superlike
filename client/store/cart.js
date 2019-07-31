@@ -6,6 +6,7 @@ const REMOVE_ITEM = 'REMOVE_ITEM'
 const ADD_ITEM = 'ADD_ITEM'
 
 //INITIAL STATE
+// probs should be object
 const defaultCart = []
 
 //ACTION CREATORS
