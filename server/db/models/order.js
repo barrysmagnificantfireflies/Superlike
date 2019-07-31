@@ -20,8 +20,8 @@ Order.findPurchaseHistory = async function(userId) {
 }
 // this takes an order and finds the price of all items * their quantity
 // not certain this makes sense
-Order.findTotalPrice = async function(order) {
-  const itemArr = order.getItems()
+Order.prototype.findTotalPrice = function() {
+  const itemArr = this.getItems()
   let price = 0
   for (let i = 0; i < itemArr.length; i++) {
     price += parseInt(i[price] * i[quantity])
