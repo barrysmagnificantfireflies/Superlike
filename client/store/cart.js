@@ -17,8 +17,8 @@ export const addItem = item => ({type: ADD_ITEM, item})
 //THUNK CREATORS
 export const getCartThunk = id => async dispatch => {
   try {
-    const res = await axios.get(`/api/orders/${id}/cart`)
-    dispatch(getCart(res.data))
+    const {data} = await axios.get(`/api/orders/${id}/cart`)
+    dispatch(getCart(data.items))
   } catch (err) {
     console.error(err)
   }
