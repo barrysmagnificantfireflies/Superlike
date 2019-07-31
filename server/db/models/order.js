@@ -5,6 +5,16 @@ const Order = db.define('order', {
   isPurchased: {
     type: Sequelize.BOOLEAN,
     defaultValue: false
+  },
+  total: {
+    type: Sequelize.FLOAT,
+    allowNull: false,
+    defaultValue: 0,
+    validate: {
+      not: ['[a-z]', 'i'],
+      notEmpty: true,
+      min: 0
+    }
   }
 })
 

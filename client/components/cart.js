@@ -9,7 +9,6 @@ class Cart extends Component {
 
   render() {
     const cart = this.props.cart
-    console.log(cart)
     return (
       <div>
         <h1>Hello</h1>
@@ -19,11 +18,12 @@ class Cart extends Component {
           <div>You have {cart.length} items in cart. </div>
         )}
         <ul>
-          {cart.map(item => (
-            <li key={item.id}>
-              <button>X</button>
-            </li>
-          ))}
+          {cart.length &&
+            cart.map(item => (
+              <li key={item.id}>
+                <button>X</button>
+              </li>
+            ))}
         </ul>
       </div>
     )
