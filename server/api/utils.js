@@ -1,10 +1,10 @@
-const {Order} = require('../db/models')
+const {Order, User} = require('../db/models')
 
 function isAdmin(req, res, next) {
   if (req.user.isAdmin) {
     next()
   }
-  res.send('notAdmin')
+  res.send('not an admin')
 }
 
 function isCorrectUser(req, res, next) {
@@ -22,8 +22,21 @@ async function doesCartExist(req, res, next) {
   res.send('cart already exists')
 }
 
+async function isUser(req, res, next) {
+  try {
+    const user = await User.findbyPk(req.body.user.id)
+    if (user) {
+      next()
+    }
+    res.send('not a User')
+  } catch (error) {
+    next(error)
+  }
+}
+
 module.exports = {
   isAdmin,
   isCorrectUser,
-  doesCartExist
+  doesCartExist,
+  isUser
 }
