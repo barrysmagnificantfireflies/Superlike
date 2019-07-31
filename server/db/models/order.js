@@ -24,17 +24,45 @@ Order.findPurchaseHistory = async function(userId) {
 }
 // this takes an order and finds the price of all items * their quantity
 // not certain this makes sense
-Order.findTotalPrice = async function(order) {
-  try {
-    const itemArr = await order.getItems()
+
+Order.prototype.findTotalPrice = function() {
+  try{
+    const itemArr = this.getItems()
     let price = 0
     for (let i = 0; i < itemArr.length; i++) {
       price += parseInt(i[price] * i[quantity])
     }
     return price
-  } catch (error) {
+  } catch(error){
     console.error(error)
   }
+}
+
+Order.findCart = async function(userId) {
+  const cart = await this.findOne({
+    where: {
+      userId,
+      isPurchased: false
+    }
+  })
+  return cart
+}
+
+Order.checkout = async function(userId) {
+  await Order.update(
+    {isPurchased: true},
+    {
+      where: {
+        userId
+      }
+    }
+  )
+}
+
+Order.newCart = async function(userId) {
+  await Order.create({
+    userId
+  })
 }
 
 module.exports = Order

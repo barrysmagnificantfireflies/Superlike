@@ -32,7 +32,7 @@ const Item = db.define('item', {
     validate: {
       not: ['[a-z]', 'i'],
       notEmpty: true,
-      max: Math.max(),
+      max: 100,
       min: 0
     }
   },
@@ -41,7 +41,7 @@ const Item = db.define('item', {
     allowNull: false,
     validate: {
       notEmpty: true,
-      max: Math.max(),
+      max: 100,
       min: 0
     }
   },
