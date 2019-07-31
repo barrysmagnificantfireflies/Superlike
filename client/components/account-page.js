@@ -3,11 +3,9 @@ import {me} from './../store/user'
 import React from 'react'
 class AccountPage extends React.Component {
   componentDidMount() {
-    console.log(this.props)
     this.props.getAll()
   }
   render() {
-    console.log('here')
     return (
       <div>
         <h1>Hello {this.props.user.email}</h1>
@@ -18,7 +16,6 @@ class AccountPage extends React.Component {
   }
 }
 const mapStateToProps = function(state) {
-  console.log('hireal')
   return {
     user: state.user
   }

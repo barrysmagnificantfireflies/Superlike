@@ -1,7 +1,19 @@
+const User = require('./users')
 function isAdmin(req, res, next) {
   if (req.user.isAdmin) {
     next()
   }
-  res.send('notAdmin')
+  res.send('not an admin')
 }
-module.exports = isAdmin
+async function isUser(req, res, next) {
+  try {
+    const user = await User.findbyPk(req.body.user.id)
+    if (user) {
+      next()
+    }
+    res.send('not a User')
+  } catch (error) {
+    next(error)
+  }
+}
+module.exports = {isAdmin, isUser}
