@@ -1,5 +1,6 @@
 const router = require('express').Router()
 const {User} = require('../db/models')
+const {isUser} = require('./utils')
 module.exports = router
 
 router.get('/', async (req, res, next) => {
@@ -15,7 +16,7 @@ router.get('/', async (req, res, next) => {
     next(err)
   }
 })
-router.get('/:id', async (req, res, next) => {
+router.get('/:id', isUser, async (req, res, next) => {
   try {
     const user = await User.findByPk(req.params.id)
     res.json(user)
@@ -31,7 +32,7 @@ router.post('/', async (req, res, next) => {
     next(error)
   }
 })
-router.put('/', async (req, res, next) => {
+router.put('/', isUser, async (req, res, next) => {
   try {
     const putUser = await User.update(req.body)
     res.json(putUser)
@@ -39,7 +40,7 @@ router.put('/', async (req, res, next) => {
     next(error)
   }
 })
-router.delete('/', async (req, res, next) => {
+router.delete('/', isUser, async (req, res, next) => {
   try {
     const destroyedUser = await User.destroy(req.body)
     res.json(destroyedUser)
