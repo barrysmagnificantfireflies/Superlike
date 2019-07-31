@@ -1,5 +1,5 @@
-import react from 'react'
+import React from 'react'
 
-export default (Product = props => {
-  return <h1>{props.name}</h1>
-})
+export const Product = props => {
+  return <h1>{props.product.name}</h1>
+}

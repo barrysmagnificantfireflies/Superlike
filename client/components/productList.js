@@ -1,9 +1,8 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
-import {Link} from 'react-router-dom'
 
 import {getProductsThunk} from '../store/productList'
-import {Product} from './components/product'
+import {Product} from './product'
 
 class ProductList extends Component {
   componentDidMount() {
@@ -34,7 +33,4 @@ const mapDispatchToProps = dispatch => {
   }
 }
 
-export const ConnectedProductList = connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(ProductList)
+export default connect(mapStateToProps, mapDispatchToProps)(ProductList)
