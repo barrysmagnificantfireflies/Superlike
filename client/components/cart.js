@@ -9,22 +9,25 @@ class Cart extends Component {
 
   render() {
     const cart = this.props.cart
-    console.log(cart)
     return (
       <div>
         <h1>Hello</h1>
-        {cart.length === 0 ? (
+        {cart && cart.length === 0 ? (
           'Cart is empty'
         ) : (
-          <div>You have {cart.length} items in cart. </div>
+          <div>
+            <div>You have {cart && cart.length} items in cart. </div>
+            <ul>
+              {console.log(cart)}
+              {cart &&
+                cart.map(item => (
+                  <li key={item.id}>
+                    <button>X</button>
+                  </li>
+                ))}
+            </ul>
+          </div>
         )}
-        <ul>
-          {cart.map(item => (
-            <li key={item.id}>
-              <button>X</button>
-            </li>
-          ))}
-        </ul>
       </div>
     )
   }
@@ -32,14 +35,15 @@ class Cart extends Component {
 
 const mapStateToProps = state => {
   return {
-    cart: state.cart
+    cart: state.cart,
+    userId: state.user.userId
   }
 }
 
 const mapDispatchToProps = () => {
   return dispatch => {
     return {
-      getCart: () => dispatch(getCartThunk())
+      getCart: () => dispatch(getCartThunk(1))
     }
   }
 }

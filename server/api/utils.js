@@ -11,6 +11,7 @@ function isCorrectUser(req, res, next) {
   if (req.user.id === req.params.id) {
     next()
   }
+  next()
   res.send('Not Correct User')
 }
 

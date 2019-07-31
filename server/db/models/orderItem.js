@@ -1,7 +1,7 @@
 const Sequelize = require('sequelize')
 const db = require('../db')
 
-const OrderItems = db.define('orderItems', {
+const OrderItem = db.define('orderItem', {
   price: {
     type: Sequelize.STRING,
     allowNull: false,
@@ -23,8 +23,9 @@ const OrderItems = db.define('orderItems', {
     }
   }
 })
-OrderItems.prototype.addOne = function(itemId) {
-  const item = OrderItems.findbyPk(itemId)
-  item.quantity++
+
+OrderItem.prototype.addOne = function() {
+  this.quantity++
 }
-module.exports = OrderItems
+
+module.exports = OrderItem

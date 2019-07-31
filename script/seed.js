@@ -1,7 +1,7 @@
 'use strict'
 
 const db = require('../server/db')
-const {User, Item, Order} = require('../server/db/models')
+const {User, Item, Order, OrderItem} = require('../server/db/models')
 
 const users = [
   {email: 'cody@email.com', password: '123', isAdmin: true},
@@ -12,8 +12,15 @@ const items = [
   {
     category: 'Romantic',
     name: 'Count Chocula',
-    price: 1.0,
-    quantity: 2,
+    price: '1.0',
+    quantity: 5,
+    description: 'Likes chocolate'
+  },
+  {
+    category: 'Funny',
+    name: 'Count Chocula2',
+    price: '2.0',
+    quantity: 5,
     description: 'Likes chocolate'
   }
 ]
@@ -22,6 +29,45 @@ const orders = [
   {
     isPurchased: true,
     userId: 1
+  },
+  {
+    isPurchased: false,
+    userId: 1
+  },
+  {
+    isPurchased: true,
+    userId: 2
+  },
+  {
+    isPurchased: false,
+    userId: 2
+  }
+]
+
+const orderItems = [
+  {
+    orderId: 1,
+    itemId: 1,
+    price: '10',
+    quantity: 1
+  },
+  {
+    orderId: 2,
+    itemId: 1,
+    price: '10',
+    quantity: 1
+  },
+  {
+    orderId: 3,
+    itemId: 1,
+    price: '10',
+    quantity: 1
+  },
+  {
+    orderId: 4,
+    itemId: 1,
+    price: '10',
+    quantity: 1
   }
 ]
 
@@ -30,12 +76,16 @@ async function seed() {
   console.log('db synced!')
 
   await Promise.all(users.map(user => User.create(user)))
+  console.log(`seeded ${users.length} users`)
 
   await Promise.all(items.map(item => Item.create(item)))
+  console.log(`seeded ${items.length} items`)
 
   await Promise.all(orders.map(order => Order.create(order)))
+  console.log(`seeded ${orders.length} orders`)
 
-  console.log(`seeded ${users.length} users`)
+  await Promise.all(orderItems.map(orderItem => OrderItem.create(orderItem)))
+  console.log(`seeded ${orderItems.length} orderItems`)
   console.log(`seeded successfully`)
 }
 
