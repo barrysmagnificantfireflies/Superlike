@@ -1,5 +1,5 @@
 const router = require('express').Router()
-const {Order} = require('../db/models')
+const {Order, OrderItem} = require('../db/models')
 const {isAdmin, isCorrectUser, doesCartExist} = require('./utils')
 module.exports = router
 
@@ -36,6 +36,31 @@ router.post('/', doesCartExist, async (req, res, next) => {
       userId: req.user.id
     })
     res.send(newOrder)
+  } catch (error) {
+    next(error)
+  }
+})
+
+//need to secure with something
+router.put('/', async (req, res, next) => {
+  try {
+    const cart = await Order.findCart(req.body.userId)
+    const orderItem = await OrderItem.findOrCreate({
+      where: {
+        orderId: cart.userId,
+        itemId: req.body.itemId
+      },
+      defaults: {
+        orderId: cart.userId,
+        itemId: req.body.itemId,
+        price: parseInt(req.body.price),
+        quantity: 1
+      }
+    })
+    if (!orderItem[1]) {
+      await orderItem[0].increment('quantity', {by: 1})
+    }
+    res.json(orderItem)
   } catch (error) {
     next(error)
   }
