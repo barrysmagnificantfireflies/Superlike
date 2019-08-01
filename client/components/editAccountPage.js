@@ -1,11 +1,12 @@
 import {connect} from 'react-redux'
 import React from 'react'
-import axios from 'axios'
+import {updateUserThunk} from '../store/user'
 
-export class EditAccountPage extends React.Component {
+class EditAccountPage extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
+      id: this.props.id,
       email: this.props.email,
       imageUrl: this.props.imageUrl
     }
@@ -14,7 +15,6 @@ export class EditAccountPage extends React.Component {
   }
 
   handleChange(event) {
-    console.log(event.target.value)
     this.setState({
       [event.target.name]: event.target.value
     })
@@ -22,11 +22,7 @@ export class EditAccountPage extends React.Component {
 
   async handleSubmit(event) {
     event.preventDefault()
-    const res = await axios.put(`/api/users/${this.props.id}`, {
-      email: event.target.email.value,
-      imageUrl: event.target.imageUrl.value
-    })
-    this.setState(res.data)
+    this.props.updateUserThunk(this.state)
   }
 
   render() {
@@ -43,7 +39,7 @@ export class EditAccountPage extends React.Component {
           <label htmlFor="imageUrl">Image URL:</label>
           <input
             type="text"
-            name="imageURL"
+            name="imageUrl"
             value={this.state.imageUrl}
             onChange={this.handleChange}
           />
@@ -53,3 +49,11 @@ export class EditAccountPage extends React.Component {
     )
   }
 }
+
+const mapDispatchToProps = dispatch => {
+  return {
+    updateUserThunk: user => dispatch(updateUserThunk(user))
+  }
+}
+
+export default connect(null, mapDispatchToProps)(EditAccountPage)

@@ -35,16 +35,18 @@ router.post('/', async (req, res, next) => {
   }
 })
 
-router.put('/:userId', isUser, async (req, res, next) => {
+router.put('/:userId', async (req, res, next) => {
+  console.log('req.body', req.body)
   try {
-    const putUser = await User.update({
-      email: req.body.email,
-      imageUrl: req.body.imageUrl,
-      where: {
-        id: req.params.userId
+    await User.update(
+      {email: req.body.email, imageUrl: req.body.imageUrl},
+      {
+        where: {
+          id: req.params.userId
+        }
       }
-    })
-    res.json(putUser)
+    )
+    res.sendStatus(201)
   } catch (error) {
     next(error)
   }
