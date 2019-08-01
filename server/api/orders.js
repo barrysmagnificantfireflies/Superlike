@@ -44,11 +44,23 @@ router.post('/', doesCartExist, async (req, res, next) => {
 //need to secure with something
 router.put('/', async (req, res, next) => {
   try {
-    const changeCart = await OrderItem.addItem(
-      parseInt(req.body.orderId),
-      parseInt(req.body.itemId)
-    )
-    res.json(changeCart)
+    const cart = await Order.findCart(req.body.userId)
+    const orderItem = await OrderItem.findOrCreate({
+      where: {
+        orderId: cart.userId,
+        itemId: req.body.itemId
+      },
+      defaults: {
+        orderId: cart.userId,
+        itemId: req.body.itemId,
+        price: parseInt(req.body.price),
+        quantity: 1
+      }
+    })
+    if (!orderItem[1]) {
+      await orderItem[0].increment('quantity', {by: 1})
+    }
+    res.json(orderItem)
   } catch (error) {
     next(error)
   }

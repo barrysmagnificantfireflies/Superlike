@@ -11,12 +11,15 @@ class SingleProduct extends React.Component {
   componentDidMount() {
     this.props.showProduct(this.props.match.params.id)
   }
-  onClick(event) {
+  async onClick(event) {
     // someone else send this to  the cart
     event.preventDefault()
-    console.log(this.props)
-    //hardcoded
-    this.props.addItem(1, this.props.match.params.id)
+    console.log('props!', this.props)
+    await this.props.addItem(
+      this.props.userId,
+      this.props.match.params.id,
+      this.props.product.price
+    )
   }
   render() {
     console.log(this.props)
@@ -39,13 +42,15 @@ class SingleProduct extends React.Component {
 const mapStateToProps = state => {
   return {
     cart: state.cart,
-    product: state.products
+    product: state.products,
+    userId: state.user.id
   }
 }
 
 const mapDispatchToProps = dispatch => {
   return {
-    addItem: id => dispatch(addItemThunk(id)),
+    addItem: (orderId, itemId, price) =>
+      dispatch(addItemThunk(orderId, itemId, price)),
     showProduct: id => dispatch(showProductThunk(id))
   }
 }

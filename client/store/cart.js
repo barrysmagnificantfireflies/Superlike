@@ -23,13 +23,13 @@ export const getCartThunk = id => async dispatch => {
     console.error(error)
   }
 }
-export const addItemThunk = (orderId, itemId) => async dispatch => {
+export const addItemThunk = (userId, itemId, price) => async dispatch => {
   try {
     const data = await axios.put(`/api/orders`, {
-      orderId: orderId,
-      itemId: itemId
+      userId: userId,
+      itemId: itemId,
+      price: price
     })
-    console.log(data)
     dispatch(addItem(data))
   } catch (error) {
     console.error(error)
@@ -44,7 +44,7 @@ export const cartReducer = (cart = defaultCart, action) => {
       for (let i = 0; i < cart.length; i++) {
         if (action.id === cart[i].id) return cart.splice(i, 1)
       }
-      break
+      return cart
     case ADD_ITEM:
       return [...cart, action.item]
     default:

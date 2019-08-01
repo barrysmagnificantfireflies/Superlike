@@ -42,11 +42,12 @@ Order.prototype.findTotalPrice = function() {
 Order.findCart = async function(userId) {
   try {
     const cart = await this.findOne({
-      include: [{model: Item}],
+      // raw: true,
       where: {
         userId,
         isPurchased: false
-      }
+      },
+      include: [{model: Item}]
     })
     return cart
   } catch (error) {
