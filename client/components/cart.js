@@ -4,7 +4,7 @@ import {getCartThunk} from './../store/cart'
 
 class Cart extends Component {
   componentDidMount() {
-    this.props.getCart()
+    this.props.getCart(this.props.userId)
   }
 
   render() {
@@ -12,19 +12,19 @@ class Cart extends Component {
     return (
       <div>
         <h1>Hello</h1>
-        {cart && cart.length === 0 ? (
+        {cart.length === 0 ? (
           'Cart is empty'
         ) : (
           <div>
-            <div>You have {cart && cart.length} items in cart. </div>
+            <div>You have {cart.length} items in cart. </div>
+            {console.log('this is the cart:', cart)}
             <ul>
-              {console.log(cart)}
-              {cart &&
-                cart.map(item => (
-                  <li key={item.id}>
-                    <button>X</button>
-                  </li>
-                ))}
+              {cart.map(item => (
+                <li key={item.id}>
+                  {item.name}
+                  <button>X</button>
+                </li>
+              ))}
             </ul>
           </div>
         )}
@@ -36,14 +36,14 @@ class Cart extends Component {
 const mapStateToProps = state => {
   return {
     cart: state.cart,
-    userId: state.user.userId
+    userId: state.user.id
   }
 }
 
 const mapDispatchToProps = () => {
   return dispatch => {
     return {
-      getCart: () => dispatch(getCartThunk(1))
+      getCart: id => dispatch(getCartThunk(id))
     }
   }
 }

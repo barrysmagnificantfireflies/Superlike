@@ -1,5 +1,6 @@
 const Sequelize = require('sequelize')
 const db = require('../db')
+const Item = require('./item')
 
 const Order = db.define('order', {
   isPurchased: {
@@ -41,6 +42,7 @@ Order.prototype.findTotalPrice = function() {
 Order.findCart = async function(userId) {
   try {
     const cart = await this.findOne({
+      include: [{model: Item}],
       where: {
         userId,
         isPurchased: false
