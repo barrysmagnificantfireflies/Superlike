@@ -1,6 +1,8 @@
 import {connect} from 'react-redux'
 import {me} from './../store/user'
 import React from 'react'
+import {EditAccountPage} from './editAccountPage'
+
 class AccountPage extends React.Component {
   componentDidMount() {
     this.props.getAll()
@@ -10,7 +12,11 @@ class AccountPage extends React.Component {
       <div>
         <h1>Hello {this.props.user.email}</h1>
         <img src={this.props.user.imageUrl} />
-        <h2>Status : {this.props.user.isAdmin}</h2>
+        <EditAccountPage
+          email={this.props.user.email}
+          imageUrl={this.props.user.imageUrl}
+          id={this.props.user.id}
+        />
       </div>
     )
   }
