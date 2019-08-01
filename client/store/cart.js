@@ -4,13 +4,15 @@ import axios from 'axios'
 const GET_CART = 'GET_CART'
 const REMOVE_ITEM = 'REMOVE_ITEM'
 const ADD_ITEM = 'ADD_ITEM'
+const EMPTY_CART = 'EMPTY_CART'
 
 //INITIAL STATE
 // probs should be object
 const defaultCart = []
 
 //ACTION CREATORS
-const getCart = cart => ({type: GET_CART, cart})
+export const getCart = cart => ({type: GET_CART, cart})
+export const emptyCart = () => ({type: EMPTY_CART, cart: []})
 export const removeItem = id => ({type: REMOVE_ITEM, id})
 export const addItem = item => ({type: ADD_ITEM, item})
 
@@ -35,6 +37,14 @@ export const addItemThunk = (orderId, itemId) => async dispatch => {
     console.error(error)
   }
 }
+export const emptyCartThunk = id => async dispatch => {
+  try {
+    await axios.put('/checkout', id)
+    dispatch(emptyCart())
+  } catch (error) {
+    console.error(error)
+  }
+}
 //REDUCER
 export const cartReducer = (cart = defaultCart, action) => {
   switch (action.type) {
@@ -47,6 +57,8 @@ export const cartReducer = (cart = defaultCart, action) => {
       break
     case ADD_ITEM:
       return [...cart, action.item]
+    case EMPTY_CART:
+      return action.cart
     default:
       return cart
   }

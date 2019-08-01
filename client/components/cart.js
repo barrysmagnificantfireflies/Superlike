@@ -1,10 +1,22 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
-import {getCartThunk} from './../store/cart'
+import {getCartThunk, emptyCartThunk} from './../store/cart'
 
 class Cart extends Component {
+  constructor() {
+    super()
+    this.onClick = this.onClick.bind(this)
+  }
   componentDidMount() {
     this.props.getCart(this.props.userId)
+  }
+  onClick() {
+    event.preventDefault()
+    alert('Checked Out')
+    this.props.emptyCart(this.props.userId)
+    console.log(this.props.cart)
+    this.props.getCart(this.props.userId)
+    // this.forceUpdate()
   }
 
   render() {
@@ -12,6 +24,7 @@ class Cart extends Component {
     return (
       <div>
         <h1>Hello</h1>
+        {console.log(cart)}
         {cart.length === 0 ? (
           'Cart is empty'
         ) : (
@@ -32,6 +45,9 @@ class Cart extends Component {
               ))}
             </ul>
             <b>Total: ${cart.reduce((a, b) => a + b.price * b.quantity, 0)}</b>
+            <button type="submit" onClick={this.onClick}>
+              CHECKOUT! : smiley face
+            </button>
           </div>
         )}
       </div>
@@ -49,7 +65,8 @@ const mapStateToProps = state => {
 const mapDispatchToProps = () => {
   return dispatch => {
     return {
-      getCart: id => dispatch(getCartThunk(id))
+      getCart: id => dispatch(getCartThunk(id)),
+      emptyCart: id => dispatch(emptyCartThunk(id))
     }
   }
 }
