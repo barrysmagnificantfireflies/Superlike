@@ -9,20 +9,97 @@ const users = [
 ]
 
 const items = [
-  {
-    category: 'Romantic',
+ {
+    category: 'Funny',
     name: 'Count Chocula',
+    imageUrl:
+      'https://res.cloudinary.com/teepublic/image/private/s--bKM9GG4P--/t_Preview/b_rgb:fffffe,c_limit,f_jpg,h_630,q_90,w_630/v1476761312/production/designs/740309_1.jpg',
     price: '1.0',
     quantity: 5,
-    description: 'Likes chocolate'
+    description: 'I like chocolate and spooning'
+  },
+  {
+    category: 'Romantic',
+    name: 'Orlando',
+    price: '300.0',
+    quantity: 50,
+    description: 'let me entice you with my luscious locks'
+  },
+  {
+    category: 'Romantic',
+    name: 'DogLover3092',
+    imageUrl:'https://cdn2.littlethings.com/app/uploads/2017/05/cute-dog-golden-retriever-600x600.jpg',
+    price: '5.0',
+    quantity: 50,
+    description: 'Recently single dog dad looking for someone to give all my doggos the pets'
+  },
+  {
+    category: 'Romantic',
+    name: 'Molly',
+    imageUrl:'https://media.licdn.com/dms/image/C4E03AQEKQTeK1D6s7A/profile-displayphoto-shrink_200_200/0?e=1568851200&v=beta&t=Ryp7wkm_bpov7SkYqrfhyp5RToDH27ZX-1EYC6r7pcQ',
+    price: '5.0',
+    quantity: 50,
+    description: 'Goofy girl with a huge heart!'
   },
   {
     category: 'Funny',
-    name: 'Count Chocula2',
-    price: '2.0',
+    name: 'Kate',
+    price: '5.0',
+    quantity: 50,
+    description: 'Free spirit trapped in the golden handcuffs of my corporate job'
+  },
+  {
+    category: 'Serious',
+    name: 'Greg',
+    price: '5.0',
+    quantity: 50,
+    description: `I am taller than 6 foot`
+  },
+  {
+    category: 'Funny',
+    name: 'Paul',
+    price: '5.0',
+    quantity: 50,
+    description: `For our first date, I'll take you to this non-GMO, cage-free quinoa bar. Everything there is quinoa: the food, the drinks, the silverware, the staff. The place has those dimly lit Thomas Edison bulbs that make it so hard to even read the menu.`
+  },
+  {
+    category: 'Romantic',
+    name: 'Lola',
+    price: '8.00',
     quantity: 5,
-    description: 'Likes chocolate'
-  }
+    description: `They say you are what you eat, but I don't remember eating a LEGEND`
+  },
+  {
+    category: 'Funny',
+    name: 'Nick',
+    imageUrl:'https://cdn2.littlethings.com/app/uploads/2017/05/cute-dog-golden-retriever-600x600.jpg',
+    price: '5.0',
+    quantity: 50,
+    description: `"Five out of five stars - would totally reccomend" - girl who swiped right a few months ago`
+  },
+  {
+    category: 'Serious',
+    name: 'Greg',
+    imageUrl:'https://cdn2.littlethings.com/app/uploads/2017/05/cute-dog-golden-retriever-600x600.jpg',
+    price: '5.0',
+    quantity: 50,
+    description: 'Just here in the NYC for a few days - only hook-ups plz'
+  },
+  {
+    category: 'Funny',
+    name: 'Ginger',
+    price: '5.0',
+    quantity: 50,
+    description: `Can't take me to the movies cuz they don't allow snacks`
+  },
+  {
+    category: 'Funny',
+    name: 'Greg',
+    imageUrl:'https://cdn2.littlethings.com/app/uploads/2017/05/cute-dog-golden-retriever-600x600.jpg',
+    price: '5.0',
+    quantity: 50,
+    description: 'Just here in the NYC for a few days - only hook-ups plz'
+  },
 ]
 
 const orders = [
