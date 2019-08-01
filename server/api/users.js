@@ -35,9 +35,15 @@ router.post('/', async (req, res, next) => {
   }
 })
 
-router.put('/', isUser, async (req, res, next) => {
+router.put('/:userId', isUser, async (req, res, next) => {
   try {
-    const putUser = await User.update(req.body)
+    const putUser = await User.update({
+      email: req.body.email,
+      imageUrl: req.body.imageUrl,
+      where: {
+        id: req.params.userId
+      }
+    })
     res.json(putUser)
   } catch (error) {
     next(error)
