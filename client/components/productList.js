@@ -6,6 +6,7 @@ import {Product} from './product'
 
 class ProductList extends Component {
   componentDidMount() {
+    console.log('here')
     this.props.getProducts()
   }
 
@@ -13,9 +14,11 @@ class ProductList extends Component {
     return (
       <div>
         <h1>List of Products</h1>
-        {this.props.products.map(product => {
-          return <Product key={product.id} product={product} />
-        })}
+        {console.log(this.props.products)}
+        {Array.isArray(this.props.products) &&
+          this.props.products.map(product => {
+            return <Product key={product.id} product={product} />
+          })}
       </div>
     )
   }

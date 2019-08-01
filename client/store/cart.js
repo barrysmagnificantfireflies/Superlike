@@ -19,11 +19,18 @@ export const getCartThunk = id => async dispatch => {
   try {
     const {data} = await axios.get(`/api/orders/${id}/cart`)
     dispatch(getCart(data.items))
-  } catch (err) {
-    console.error(err)
+  } catch (error) {
+    console.error(error)
   }
 }
-
+export const addItemThunk = id => async dispatch => {
+  try {
+    const {data} = await axios.get(`/api/item/${id}`)
+    dispatch(addItem(data))
+  } catch (error) {
+    console.error(error)
+  }
+}
 //REDUCER
 export const cartReducer = (cart = defaultCart, action) => {
   switch (action.type) {
@@ -35,7 +42,7 @@ export const cartReducer = (cart = defaultCart, action) => {
       }
       break
     case ADD_ITEM:
-      return cart.push(action.item)
+      return [...cart, action.item]
     default:
       return cart
   }
