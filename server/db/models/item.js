@@ -32,7 +32,7 @@ const Item = db.define('item', {
     validate: {
       not: ['[a-z]', 'i'],
       notEmpty: true,
-      max: 100,
+      max: 1000,
       min: 0
     }
   },
