@@ -33,6 +33,7 @@ export const cartReducer = (cart = defaultCart, action) => {
       for (let i = 0; i < cart.length; i++) {
         if (action.id === cart[i].id) return cart.splice(i, 1)
       }
+      break
     case ADD_ITEM:
       return cart.push(action.item)
     default:
