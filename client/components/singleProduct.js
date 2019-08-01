@@ -14,7 +14,9 @@ class SingleProduct extends React.Component {
   onClick(event) {
     // someone else send this to  the cart
     event.preventDefault()
-    this.props.addItem(this.props.match.params.id)
+    console.log(this.props)
+    //hardcoded
+    this.props.addItem(1, this.props.match.params.id)
   }
   render() {
     console.log(this.props)

@@ -23,9 +23,13 @@ export const getCartThunk = id => async dispatch => {
     console.error(error)
   }
 }
-export const addItemThunk = id => async dispatch => {
+export const addItemThunk = (orderId, itemId) => async dispatch => {
   try {
-    const {data} = await axios.get(`/api/item/${id}`)
+    const data = await axios.put(`/api/orders`, {
+      orderId: orderId,
+      itemId: itemId
+    })
+    console.log(data)
     dispatch(addItem(data))
   } catch (error) {
     console.error(error)

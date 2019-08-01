@@ -1,5 +1,5 @@
 const router = require('express').Router()
-const {Order} = require('../db/models')
+const {Order, OrderItem} = require('../db/models')
 const {isAdmin, isCorrectUser, doesCartExist} = require('./utils')
 module.exports = router
 
@@ -36,6 +36,19 @@ router.post('/', doesCartExist, async (req, res, next) => {
       userId: req.user.id
     })
     res.send(newOrder)
+  } catch (error) {
+    next(error)
+  }
+})
+
+//need to secure with something
+router.put('/', async (req, res, next) => {
+  try {
+    const changeCart = await OrderItem.addItem(
+      parseInt(req.body.orderId),
+      parseInt(req.body.itemId)
+    )
+    res.json(changeCart)
   } catch (error) {
     next(error)
   }

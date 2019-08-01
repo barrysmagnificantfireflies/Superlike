@@ -16,9 +16,9 @@ class ProductList extends Component {
         <h1>List of Products</h1>
         {console.log(this.props.products)}
         {Array.isArray(this.props.products) &&
-          this.props.products.map(product => {
-            return <Product key={product.id} product={product} />
-          })}
+          this.props.products.map(product => (
+            <Product key={product.id} product={product} />
+          ))}
       </div>
     )
   }
