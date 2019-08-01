@@ -9,7 +9,7 @@ const users = [
 ]
 
 const items = [
- {
+  {
     category: 'Funny',
     name: 'Count Chocula',
     imageUrl:
@@ -28,15 +28,18 @@ const items = [
   {
     category: 'Romantic',
     name: 'DogLover3092',
-    imageUrl:'https://cdn2.littlethings.com/app/uploads/2017/05/cute-dog-golden-retriever-600x600.jpg',
+    imageUrl:
+      'https://cdn2.littlethings.com/app/uploads/2017/05/cute-dog-golden-retriever-600x600.jpg',
     price: '5.0',
     quantity: 50,
-    description: 'Recently single dog dad looking for someone to give all my doggos the pets'
+    description:
+      'Recently single dog dad looking for someone to give all my doggos the pets'
   },
   {
     category: 'Romantic',
     name: 'Molly',
-    imageUrl:'https://media.licdn.com/dms/image/C4E03AQEKQTeK1D6s7A/profile-displayphoto-shrink_200_200/0?e=1568851200&v=beta&t=Ryp7wkm_bpov7SkYqrfhyp5RToDH27ZX-1EYC6r7pcQ',
+    imageUrl:
+      'https://media.licdn.com/dms/image/C4E03AQEKQTeK1D6s7A/profile-displayphoto-shrink_200_200/0?e=1568851200&v=beta&t=Ryp7wkm_bpov7SkYqrfhyp5RToDH27ZX-1EYC6r7pcQ',
     price: '5.0',
     quantity: 50,
     description: 'Goofy girl with a huge heart!'
@@ -46,7 +49,8 @@ const items = [
     name: 'Kate',
     price: '5.0',
     quantity: 50,
-    description: 'Free spirit trapped in the golden handcuffs of my corporate job'
+    description:
+      'Free spirit trapped in the golden handcuffs of my corporate job'
   },
   {
     category: 'Serious',
@@ -72,7 +76,8 @@ const items = [
   {
     category: 'Funny',
     name: 'Nick',
-    imageUrl:'https://cdn2.littlethings.com/app/uploads/2017/05/cute-dog-golden-retriever-600x600.jpg',
+    imageUrl:
+      'https://cdn2.littlethings.com/app/uploads/2017/05/cute-dog-golden-retriever-600x600.jpg',
     price: '5.0',
     quantity: 50,
     description: `"Five out of five stars - would totally reccomend" - girl who swiped right a few months ago`
@@ -80,7 +85,8 @@ const items = [
   {
     category: 'Serious',
     name: 'Greg',
-    imageUrl:'https://cdn2.littlethings.com/app/uploads/2017/05/cute-dog-golden-retriever-600x600.jpg',
+    imageUrl:
+      'https://cdn2.littlethings.com/app/uploads/2017/05/cute-dog-golden-retriever-600x600.jpg',
     price: '5.0',
     quantity: 50,
     description: 'Just here in the NYC for a few days - only hook-ups plz'
@@ -95,11 +101,12 @@ const items = [
   {
     category: 'Funny',
     name: 'Greg',
-    imageUrl:'https://cdn2.littlethings.com/app/uploads/2017/05/cute-dog-golden-retriever-600x600.jpg',
+    imageUrl:
+      'https://cdn2.littlethings.com/app/uploads/2017/05/cute-dog-golden-retriever-600x600.jpg',
     price: '5.0',
     quantity: 50,
     description: 'Just here in the NYC for a few days - only hook-ups plz'
-  },
+  }
 ]
 
 const orders = [
