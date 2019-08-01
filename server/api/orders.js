@@ -60,7 +60,7 @@ router.put('/', async (req, res, next) => {
     if (!orderItem[1]) {
       await orderItem[0].increment('quantity', {by: 1})
     }
-    res.json(orderItem)
+    res.json(orderItem[0])
   } catch (error) {
     next(error)
   }
