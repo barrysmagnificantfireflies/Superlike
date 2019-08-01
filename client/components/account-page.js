@@ -1,7 +1,7 @@
 import {connect} from 'react-redux'
 import {me} from './../store/user'
 import React from 'react'
-import {EditAccountPage} from './editAccountPage'
+import EditAccountPage from './editAccountPage'
 
 class AccountPage extends React.Component {
   componentDidMount() {
