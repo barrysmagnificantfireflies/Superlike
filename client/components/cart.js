@@ -20,12 +20,18 @@ class Cart extends Component {
             {console.log('this is the cart:', cart)}
             <ul>
               {cart.map(item => (
-                <li key={item.id}>
-                  {item.name}
-                  <button>X</button>
-                </li>
+                <div>
+                  <li key={item.id}>
+                    <b>{item.name}</b>
+                    <button>X</button>
+                  </li>
+                  <p>
+                    {item.quantity} x {item.price}
+                  </p>
+                </div>
               ))}
             </ul>
+            <b>Total: ${cart.reduce((a, b) => a + b.price * b.quantity, 0)}</b>
           </div>
         )}
       </div>
