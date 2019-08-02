@@ -33,14 +33,15 @@ export const addItemThunk = (userId, itemId, price) => async dispatch => {
       price: price
     })
     console.log('this is the most important', item.data)
-    dispatch(addItem(item.data))
+    const {data} = await axios.get(`/api/item/${itemId}`)
+    dispatch(addItem(data))
   } catch (error) {
     console.error(error)
   }
 }
 export const emptyCartThunk = id => async dispatch => {
   try {
-    await axios.put('/checkout', id)
+    await axios.put(`/api/users/${id}/checkout`)
     dispatch(emptyCart())
   } catch (error) {
     console.error(error)

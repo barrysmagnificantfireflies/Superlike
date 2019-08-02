@@ -47,11 +47,11 @@ router.put('/', async (req, res, next) => {
     const cart = await Order.findCart(req.body.userId)
     const orderItem = await OrderItem.findOrCreate({
       where: {
-        orderId: cart.userId,
+        orderId: cart.id,
         itemId: req.body.itemId
       },
       defaults: {
-        orderId: cart.userId,
+        orderId: cart.id,
         itemId: req.body.itemId,
         price: parseInt(req.body.price),
         quantity: 1
