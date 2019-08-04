@@ -27,11 +27,13 @@ export const getCartThunk = id => async dispatch => {
 }
 export const addItemThunk = (userId, itemId, price) => async dispatch => {
   try {
-    const data = await axios.put(`/api/orders`, {
+    const item = await axios.put(`/api/orders`, {
       userId: userId,
       itemId: itemId,
       price: price
     })
+    console.log('this is the most important', item.data)
+    const {data} = await axios.get(`/api/item/${itemId}`)
     dispatch(addItem(data))
   } catch (error) {
     console.error(error)
@@ -39,7 +41,7 @@ export const addItemThunk = (userId, itemId, price) => async dispatch => {
 }
 export const emptyCartThunk = id => async dispatch => {
   try {
-    await axios.put('/checkout', id)
+    await axios.put(`/api/users/${id}/checkout`)
     dispatch(emptyCart())
   } catch (error) {
     console.error(error)
@@ -56,6 +58,7 @@ export const cartReducer = (cart = defaultCart, action) => {
       }
       return cart
     case ADD_ITEM:
+      console.log([...cart, action.item])
       return [...cart, action.item]
     case EMPTY_CART:
       return action.cart

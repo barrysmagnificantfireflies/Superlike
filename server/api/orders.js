@@ -47,11 +47,11 @@ router.put('/', async (req, res, next) => {
     const cart = await Order.findCart(req.body.userId)
     const orderItem = await OrderItem.findOrCreate({
       where: {
-        orderId: cart.userId,
+        orderId: cart.id,
         itemId: req.body.itemId
       },
       defaults: {
-        orderId: cart.userId,
+        orderId: cart.id,
         itemId: req.body.itemId,
         price: parseInt(req.body.price),
         quantity: 1
@@ -60,7 +60,7 @@ router.put('/', async (req, res, next) => {
     if (!orderItem[1]) {
       await orderItem[0].increment('quantity', {by: 1})
     }
-    res.json(orderItem)
+    res.json(orderItem[0])
   } catch (error) {
     next(error)
   }
