@@ -360,21 +360,37 @@ function (_Component) {
     key: "onClick",
     value: function onClick() {
       event.preventDefault();
+<<<<<<< HEAD
       this.props.emptyCart(this.props.userId);
       this.props.getCart(this.props.userId); //alert('Checked Out')
 
       this.forceUpdate();
+=======
+      alert('Checked Out');
+      this.props.emptyCart(this.props.userId);
+      console.log(this.props.cart);
+      this.props.getCart(this.props.userId); // this.forceUpdate()
+>>>>>>> master
     }
   }, {
     key: "render",
     value: function render() {
       var cart = this.props.cart;
+<<<<<<< HEAD
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Hello"), cart.length === 0 ? 'Cart is empty' : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "You have ", cart.length, " items in cart. "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, cart.map(function (item) {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
           key: item.id
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("b", null, item.name), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", null, "X")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, item && item.orderItem.quantity, "X", item.price));
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("b", null, "Total: $", cart.reduce(function (a, b) {
         return a + b.price * b.orderItem.quantity;
+=======
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Hello"), console.log(cart), cart.length === 0 ? 'Cart is empty' : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "You have ", cart.length, " items in cart. "), console.log('this is the cart:', cart), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, cart.map(function (item) {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+          key: item.id
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("b", null, item.name), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", null, "X")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, item.quantity, " x ", item.price));
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("b", null, "Total: $", cart.reduce(function (a, b) {
+        return a + b.price * b.quantity;
+>>>>>>> master
       }, 0)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         type: "submit",
         onClick: this.onClick
@@ -854,7 +870,11 @@ function (_React$Component) {
               case 0:
                 // someone else send this to  the cart
                 event.preventDefault();
+<<<<<<< HEAD
                 console.log('these are the props', this.props);
+=======
+                console.log('props!', this.props);
+>>>>>>> master
                 _context.next = 4;
                 return this.props.addItem(this.props.userId, this.props.match.params.id, this.props.product.price);
 
@@ -1283,8 +1303,12 @@ var addItemThunk = function addItemThunk(userId, itemId, price) {
       var _ref3 = _asyncToGenerator(
       /*#__PURE__*/
       regeneratorRuntime.mark(function _callee2(dispatch) {
+<<<<<<< HEAD
         var item, _ref4, data;
 
+=======
+        var data;
+>>>>>>> master
         return regeneratorRuntime.wrap(function _callee2$(_context2) {
           while (1) {
             switch (_context2.prev = _context2.next) {
@@ -1298,6 +1322,7 @@ var addItemThunk = function addItemThunk(userId, itemId, price) {
                 });
 
               case 3:
+<<<<<<< HEAD
                 item = _context2.sent;
                 console.log('this is the most important', item.data);
                 _context2.next = 7;
@@ -1316,11 +1341,28 @@ var addItemThunk = function addItemThunk(userId, itemId, price) {
                 console.error(_context2.t0);
 
               case 15:
+=======
+                data = _context2.sent;
+                dispatch(addItem(data));
+                _context2.next = 10;
+                break;
+
+              case 7:
+                _context2.prev = 7;
+                _context2.t0 = _context2["catch"](0);
+                console.error(_context2.t0);
+
+              case 10:
+>>>>>>> master
               case "end":
                 return _context2.stop();
             }
           }
+<<<<<<< HEAD
         }, _callee2, null, [[0, 12]]);
+=======
+        }, _callee2, null, [[0, 7]]);
+>>>>>>> master
       }));
 
       return function (_x2) {
@@ -1333,7 +1375,11 @@ var emptyCartThunk = function emptyCartThunk(id) {
   return (
     /*#__PURE__*/
     function () {
+<<<<<<< HEAD
       var _ref5 = _asyncToGenerator(
+=======
+      var _ref4 = _asyncToGenerator(
+>>>>>>> master
       /*#__PURE__*/
       regeneratorRuntime.mark(function _callee3(dispatch) {
         return regeneratorRuntime.wrap(function _callee3$(_context3) {
@@ -1342,7 +1388,11 @@ var emptyCartThunk = function emptyCartThunk(id) {
               case 0:
                 _context3.prev = 0;
                 _context3.next = 3;
+<<<<<<< HEAD
                 return axios__WEBPACK_IMPORTED_MODULE_0___default.a.put("/api/users/".concat(id, "/checkout"));
+=======
+                return axios__WEBPACK_IMPORTED_MODULE_0___default.a.put('/checkout', id);
+>>>>>>> master
 
               case 3:
                 dispatch(emptyCart());
@@ -1363,7 +1413,11 @@ var emptyCartThunk = function emptyCartThunk(id) {
       }));
 
       return function (_x3) {
+<<<<<<< HEAD
         return _ref5.apply(this, arguments);
+=======
+        return _ref4.apply(this, arguments);
+>>>>>>> master
       };
     }()
   );
@@ -1385,7 +1439,10 @@ var cartReducer = function cartReducer() {
       return cart;
 
     case ADD_ITEM:
+<<<<<<< HEAD
       console.log([].concat(_toConsumableArray(cart), [action.item]));
+=======
+>>>>>>> master
       return [].concat(_toConsumableArray(cart), [action.item]);
 
     case EMPTY_CART:
@@ -45385,7 +45442,11 @@ function warning(message) {
 /*!***************************************************************!*\
   !*** ./node_modules/react-router-dom/esm/react-router-dom.js ***!
   \***************************************************************/
+<<<<<<< HEAD
 /*! exports provided: MemoryRouter, Prompt, Redirect, Route, Router, StaticRouter, Switch, generatePath, matchPath, withRouter, __RouterContext, BrowserRouter, HashRouter, Link, NavLink */
+=======
+/*! exports provided: BrowserRouter, HashRouter, Link, NavLink, MemoryRouter, Prompt, Redirect, Route, Router, StaticRouter, Switch, generatePath, matchPath, withRouter, __RouterContext */
+>>>>>>> master
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
