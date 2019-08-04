@@ -14,7 +14,7 @@ class SingleProduct extends React.Component {
   async onClick(event) {
     // someone else send this to  the cart
     event.preventDefault()
-    console.log('props!', this.props)
+    console.log('these are the props', this.props)
     await this.props.addItem(
       this.props.userId,
       this.props.match.params.id,

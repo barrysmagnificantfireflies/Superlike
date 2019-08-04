@@ -49,6 +49,7 @@ Order.findCart = async function(userId) {
       },
       include: [{model: Item}]
     })
+    console.log('cart!!', cart)
     return cart
   } catch (error) {
     console.error(error)

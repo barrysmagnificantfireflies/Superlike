@@ -12,11 +12,10 @@ class Cart extends Component {
   }
   onClick() {
     event.preventDefault()
-    alert('Checked Out')
     this.props.emptyCart(this.props.userId)
-    console.log(this.props.cart)
     this.props.getCart(this.props.userId)
-    // this.forceUpdate()
+    //alert('Checked Out')
+    this.forceUpdate()
   }
 
   render() {
@@ -24,13 +23,11 @@ class Cart extends Component {
     return (
       <div>
         <h1>Hello</h1>
-        {console.log(cart)}
         {cart.length === 0 ? (
           'Cart is empty'
         ) : (
           <div>
             <div>You have {cart.length} items in cart. </div>
-            {console.log('this is the cart:', cart)}
             <ul>
               {cart.map(item => (
                 <div>
@@ -39,12 +36,17 @@ class Cart extends Component {
                     <button>X</button>
                   </li>
                   <p>
-                    {item.quantity} x {item.price}
+                    {item && item.orderItem.quantity}X{item.price}
                   </p>
                 </div>
               ))}
             </ul>
-            <b>Total: ${cart.reduce((a, b) => a + b.price * b.quantity, 0)}</b>
+            <b>
+              Total: ${cart.reduce(
+                (a, b) => a + b.price * b.orderItem.quantity,
+                0
+              )}
+            </b>
             <button type="submit" onClick={this.onClick}>
               CHECKOUT! : smiley face
             </button>
