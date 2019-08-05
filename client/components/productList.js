@@ -3,6 +3,7 @@ import {connect} from 'react-redux'
 
 import {getProductsThunk} from '../store/productList'
 import {Product} from './product'
+import Grid from '@material-ui/core/Grid'
 
 class ProductList extends Component {
   componentDidMount() {
@@ -13,12 +14,16 @@ class ProductList extends Component {
   render() {
     return (
       <div>
-        <h1>List of Products</h1>
-        {console.log(this.props.products)}
-        {Array.isArray(this.props.products) &&
-          this.props.products.map(product => (
-            <Product key={product.id} product={product} />
-          ))}
+        <h1 align="center">List of Products</h1>
+        <Grid container spacing={24} style={{padding: 24}}>
+          {console.log(this.props.products)}
+          {Array.isArray(this.props.products) &&
+            this.props.products.map(product => (
+              <Grid item xs={12} sm={6} lg={4} xl={3}>
+                <Product key={product.id} product={product} />
+              </Grid>
+            ))}
+        </Grid>
       </div>
     )
   }
