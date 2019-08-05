@@ -8,10 +8,15 @@ import {connect} from 'react-redux'
 export const UserHome = props => {
   const {email, imageUrl} = props
   return (
-    <div>
-      <h3>Welcome {email ? email : 'Friend!!!'}</h3>
-      <p>We are super like. We are great. We make profiles. We are fun.</p>
-      <img src="https://d2eehagpk5cl65.cloudfront.net/img/c800x450-w800-q80/uploads/2016/06/14672531046563.jpg" />
+    <div align="center">
+      <h1>Welcome to Super Like</h1>
+      <img src="https://www.pinclipart.com/picdir/middle/13-132184_clip-art-transparent-library-national-day-june-real.png" />
+      <p>
+        Our goal is to make sure you find the person of your dreams without ever
+        having to show who you really are! Super Like takes the hardest part of
+        online dating - creating that eye catching profile - and delivers a
+        custom and tailored product that fit your catfishing needs.
+      </p>
     </div>
   )
 }

@@ -3,35 +3,59 @@ import PropTypes from 'prop-types'
 import {connect} from 'react-redux'
 import {Link} from 'react-router-dom'
 import {logout} from '../store'
+import AppBar from '@material-ui/core/AppBar'
+import Toolbar from '@material-ui/core/Toolbar'
+import Typography from '@material-ui/core/Typography'
 
 const Navbar = ({handleClick, isLoggedIn}) => (
   <div>
-    <h1>Super Like</h1>
-    <h2>`You can be anyone you want... ${':)'}`</h2>
-
-    <nav>
+    <AppBar position="static" style={{background: '#E9967A'}}>
+      <h1>Super Like</h1>
       {isLoggedIn ? (
-        <div>
-          {/* The navbar will show these links after you log in */}
-          <Link to="/home">Home</Link>
-          <Link to="/products">Products</Link>
-          <Link to="/account">Account</Link>
-          <Link to="/cart">Cart</Link>
-          <a href="#" onClick={handleClick}>
-            Logout
-          </a>
-        </div>
+        <Toolbar>
+          <Typography variant="button">
+            {/* The navbar will show these links after you log in */}
+            <Link to="/home" style={{padding: 15}}>
+              {' '}
+              Home
+            </Link>
+            <Link to="/products" style={{padding: 15}}>
+              Products
+            </Link>
+            <Link to="/account" style={{padding: 15}}>
+              Account
+            </Link>
+            <Link to="/cart" style={{padding: 15}}>
+              Cart
+            </Link>
+            <a href="#" onClick={handleClick} style={{padding: 15}}>
+              Logout
+            </a>
+          </Typography>
+        </Toolbar>
       ) : (
-        <div>
-          {/* The navbar will show these links before you log in */}
-          <Link to="/home">Home</Link>
-          <Link to="/products">Products</Link>
-          <Link to="/cart">Cart</Link>
-          <Link to="/login">Login</Link>
-          <Link to="/signup">Sign Up</Link>
-        </div>
+        <Toolbar>
+          <Typography variant="button">
+            {/* The navbar will show these links before you log in */}
+            <Link to="/home" style={{padding: 15}}>
+              Home
+            </Link>
+            <Link to="/products" style={{padding: 15}}>
+              Products
+            </Link>
+            <Link to="/cart" style={{padding: 15}}>
+              Cart
+            </Link>
+            <Link to="/login" style={{padding: 15}}>
+              Login
+            </Link>
+            <Link to="/signup" style={{padding: 15}}>
+              Sign Up
+            </Link>
+          </Typography>
+        </Toolbar>
       )}
-    </nav>
+    </AppBar>
     <hr />
   </div>
 )
