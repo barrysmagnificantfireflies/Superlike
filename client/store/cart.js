@@ -67,7 +67,6 @@ export const cartReducer = (cart = defaultCart, action) => {
     case REMOVE_ITEM:
       return action.cart
     case ADD_ITEM:
-      console.log([...cart, action.item])
       return [...cart, action.item]
     case EMPTY_CART:
       return action.cart

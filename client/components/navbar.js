@@ -9,10 +9,14 @@ import Typography from '@material-ui/core/Typography'
 
 const Navbar = ({handleClick, isLoggedIn}) => (
   <div>
-    <AppBar position="static" style={{background: '#E9967A'}}>
-      <h1>Super Like</h1>
+    <AppBar position="static" style={{background: '#AA2F2A'}}>
       {isLoggedIn ? (
         <Toolbar>
+          <img
+            src="https://i.imgur.com/6NxxnDC.png"
+            align="center"
+            style={{width: 150, height: 100}}
+          />
           <Typography variant="button">
             {/* The navbar will show these links after you log in */}
             <Link to="/home" style={{padding: 15}}>

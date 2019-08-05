@@ -12,7 +12,7 @@ export const Product = props => {
     <div>
       <Card>
         <CardMedia
-          style={{height: 400, width: 400}}
+          style={{height: 500, width: 400}}
           image={props.product.imageUrl}
           title={props.product.name}
         />
