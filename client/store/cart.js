@@ -13,7 +13,7 @@ const defaultCart = []
 //ACTION CREATORS
 export const getCart = cart => ({type: GET_CART, cart})
 export const emptyCart = () => ({type: EMPTY_CART, cart: []})
-export const removeItem = id => ({type: REMOVE_ITEM, cart})
+export const removeItem = cart => ({type: REMOVE_ITEM, cart})
 export const addItem = item => ({type: ADD_ITEM, item})
 
 //THUNK CREATORS
@@ -25,6 +25,7 @@ export const getCartThunk = id => async dispatch => {
     console.error(error)
   }
 }
+
 export const addItemThunk = (userId, itemId, price) => async dispatch => {
   try {
     const item = await axios.put(`/api/orders`, {
@@ -45,7 +46,9 @@ export const removeItemThunk = (userId, itemId) => async dispatch => {
       userId,
       itemId
     })
+    console.log('0 cart analysis pre', cart.data)
     dispatch(removeItem(cart.data))
+    console.log('0 cart analysis post', cart.data)
   } catch (error) {
     console.error(error)
   }
@@ -63,11 +66,18 @@ export const emptyCartThunk = id => async dispatch => {
 export const cartReducer = (cart = defaultCart, action) => {
   switch (action.type) {
     case GET_CART:
-      return action.cart
+      if (action.cart) {
+        return action.cart
+      } else {
+        return cart
+      }
     case REMOVE_ITEM:
-      return action.cart
+      if (action.cart[0] && action.cart[0].orderItem.quantity === 0) {
+        return []
+      } else {
+        return action.cart
+      }
     case ADD_ITEM:
-      console.log([...cart, action.item])
       return [...cart, action.item]
     case EMPTY_CART:
       return action.cart

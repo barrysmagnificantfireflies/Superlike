@@ -30,6 +30,7 @@ class SingleProduct extends React.Component {
     //   gravity: "top",
     //   position: 'left'
     // }).showToast()
+    console.log('singleproduct component', this.props.product)
     await this.props.addItem(
       this.props.userId,
       this.props.match.params.id,

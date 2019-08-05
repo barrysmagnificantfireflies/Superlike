@@ -73,7 +73,8 @@ router.put('/remove-item', async (req, res, next) => {
     let order = await Order.findCart(userId)
     await OrderItem.removeItem(order.id, itemId)
     const cart = await Order.findCart(userId)
-    res.send(cart).status(201)
+    console.log('0 cart analysis', cart.items)
+    res.send(cart.items)
   } catch (error) {
     next(error)
   }
