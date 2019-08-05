@@ -6,6 +6,7 @@ import {logout} from '../store'
 import AppBar from '@material-ui/core/AppBar'
 import Toolbar from '@material-ui/core/Toolbar'
 import Typography from '@material-ui/core/Typography'
+import {flexbox} from '@material-ui/system'
 
 const Navbar = ({handleClick, isLoggedIn}) => (
   <div>
@@ -19,20 +20,24 @@ const Navbar = ({handleClick, isLoggedIn}) => (
           />
           <Typography variant="button">
             {/* The navbar will show these links after you log in */}
-            <Link to="/home" style={{padding: 15}}>
+            <Link to="/home" style={{padding: 15, color: 'white'}}>
               {' '}
               Home
             </Link>
-            <Link to="/products" style={{padding: 15}}>
+            <Link to="/products" style={{padding: 15, color: 'white'}}>
               Products
             </Link>
-            <Link to="/account" style={{padding: 15}}>
+            <Link to="/account" style={{padding: 15, color: 'white'}}>
               Account
             </Link>
-            <Link to="/cart" style={{padding: 15}}>
+            <Link to="/cart" style={{padding: 15, color: 'white'}}>
               Cart
             </Link>
-            <a href="#" onClick={handleClick} style={{padding: 15}}>
+            <a
+              href="#"
+              onClick={handleClick}
+              style={{padding: 15, color: 'white'}}
+            >
               Logout
             </a>
           </Typography>
