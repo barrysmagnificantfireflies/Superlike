@@ -1,6 +1,7 @@
 const Sequelize = require('sequelize')
 const db = require('../db')
 const Item = require('./item')
+const Order = require('./order')
 
 const OrderItem = db.define('orderItem', {
   price: {
@@ -46,7 +47,6 @@ OrderItem.checkOrder = async function(orderId) {
 //check item is within order, add itemId, orderId
 OrderItem.checkItem = async function(itemId) {
   const item = await OrderItem.findByPk(itemId)
-
   if (item) return true
   return false
 }
@@ -81,6 +81,25 @@ OrderItem.addItem = async function(orderId, itemId) {
     return updateCart
   } catch (error) {
     console.error(error)
+  }
+}
+
+OrderItem.removeItem = async (orderId, itemId) => {
+  const itemToRemove = await OrderItem.findOne({
+    where: {
+      orderId,
+      itemId
+    }
+  })
+  itemToRemove.decrement('quantity', {by: 1})
+  if (itemToRemove.quantity < 1) {
+    console.log(itemToRemove.quantity)
+    OrderItem.destroy({
+      where: {
+        orderId,
+        itemId
+      }
+    })
   }
 }
 

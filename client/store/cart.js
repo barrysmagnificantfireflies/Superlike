@@ -13,7 +13,7 @@ const defaultCart = []
 //ACTION CREATORS
 export const getCart = cart => ({type: GET_CART, cart})
 export const emptyCart = () => ({type: EMPTY_CART, cart: []})
-export const removeItem = id => ({type: REMOVE_ITEM, id})
+export const removeItem = id => ({type: REMOVE_ITEM, cart})
 export const addItem = item => ({type: ADD_ITEM, item})
 
 //THUNK CREATORS
@@ -32,13 +32,25 @@ export const addItemThunk = (userId, itemId, price) => async dispatch => {
       itemId: itemId,
       price: price
     })
-    console.log('this is the most important', item.data)
     const {data} = await axios.get(`/api/item/${itemId}`)
     dispatch(addItem(data))
   } catch (error) {
     console.error(error)
   }
 }
+
+export const removeItemThunk = (userId, itemId) => async dispatch => {
+  try {
+    const cart = await axios.put('/api/orders/remove-item', {
+      userId,
+      itemId
+    })
+    dispatch(removeItem(cart.data))
+  } catch (error) {
+    console.error(error)
+  }
+}
+
 export const emptyCartThunk = id => async dispatch => {
   try {
     await axios.put(`/api/users/${id}/checkout`)
@@ -53,10 +65,7 @@ export const cartReducer = (cart = defaultCart, action) => {
     case GET_CART:
       return action.cart
     case REMOVE_ITEM:
-      for (let i = 0; i < cart.length; i++) {
-        if (action.id === cart[i].id) return cart.splice(i, 1)
-      }
-      return cart
+      return action.cart
     case ADD_ITEM:
       console.log([...cart, action.item])
       return [...cart, action.item]

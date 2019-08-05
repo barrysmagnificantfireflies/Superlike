@@ -1,21 +1,26 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
-import {getCartThunk, emptyCartThunk} from './../store/cart'
+import {getCartThunk, emptyCartThunk, removeItemThunk} from './../store/cart'
 
 class Cart extends Component {
   constructor() {
     super()
-    this.onClick = this.onClick.bind(this)
+    this.checkout = this.checkout.bind(this)
+    this.removeItem = this.removeItem.bind(this)
   }
   componentDidMount() {
     this.props.getCart(this.props.userId)
   }
-  onClick() {
+  checkout() {
     event.preventDefault()
     this.props.emptyCart(this.props.userId)
     this.props.getCart(this.props.userId)
     //alert('Checked Out')
     this.forceUpdate()
+  }
+
+  removeItem(itemId) {
+    this.props.removeItem(this.props.userId, itemId)
   }
 
   render() {
@@ -33,10 +38,12 @@ class Cart extends Component {
                 <div>
                   <li key={item.id}>
                     <b>{item.name}</b>
-                    <button>X</button>
+                    <button onClick={this.removeItem(item.id)}>
+                      Remove Item
+                    </button>
                   </li>
                   <p>
-                    {item.orderItem && item.orderItem.quantity}X{item.price}
+                    {item.orderItem && item.orderItem.quantity} X {item.price}
                   </p>
                 </div>
               ))}
@@ -47,7 +54,7 @@ class Cart extends Component {
                 0
               )}
             </b>
-            <button type="submit" onClick={this.onClick}>
+            <button type="submit" onClick={this.checkout}>
               CHECKOUT! : smiley face
             </button>
           </div>
@@ -68,7 +75,8 @@ const mapDispatchToProps = () => {
   return dispatch => {
     return {
       getCart: id => dispatch(getCartThunk(id)),
-      emptyCart: id => dispatch(emptyCartThunk(id))
+      emptyCart: id => dispatch(emptyCartThunk(id)),
+      removeItem: (userId, itemId) => dispatch(removeItemThunk(userId, itemId))
     }
   }
 }

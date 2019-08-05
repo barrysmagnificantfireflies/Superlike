@@ -8,6 +8,7 @@ import CardContent from '@material-ui/core/CardContent'
 import CardMedia from '@material-ui/core/CardMedia'
 import Button from '@material-ui/core/Button'
 import Typography from '@material-ui/core/Typography'
+import Toastify from 'toastify-js'
 
 class SingleProduct extends React.Component {
   constructor() {
@@ -17,29 +18,29 @@ class SingleProduct extends React.Component {
   componentDidMount() {
     this.props.showProduct(this.props.match.params.id)
   }
+
   async onClick(event) {
     // someone else send this to  the cart
     event.preventDefault()
-    console.log('these are the props', this.props)
+    // Toastify({
+    //   text: 'Item Added to Cart',
+    //   duration: 3000,
+    //   backgroundColor: 'linear-gradient(to right, #00b09b, #96c93d)',
+    //   className: 'info',
+    //   gravity: "top",
+    //   position: 'left'
+    // }).showToast()
     await this.props.addItem(
       this.props.userId,
       this.props.match.params.id,
       this.props.product.price
     )
+    //this.forceUpdate()
   }
+
   render() {
     const product = this.props.product
     return (
-      // <div>
-      //   <h1>{product && product.name}</h1>
-      //   <h3>{product && product.category}</h3>
-      //   <img src={product && product.imageUrl} />
-      //   <p> price = {product && product.price} </p>
-      //   <p> {product && product.description} </p>
-      //   <p>{product && product.quantity}</p>
-      //   <button type="submit" onClick={this.onClick}>
-      //     BUY IT NOW!
-      //   </button>
       <div align="center">
         <Card>
           <CardMedia
