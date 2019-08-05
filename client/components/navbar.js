@@ -9,8 +9,8 @@ import Typography from '@material-ui/core/Typography'
 
 const Navbar = ({handleClick, isLoggedIn}) => (
   <div>
+    <img src="public/images/logopic.png" align="center" />
     <AppBar position="static" style={{background: '#E9967A'}}>
-      <h1>Super Like</h1>
       {isLoggedIn ? (
         <Toolbar>
           <Typography variant="button">
