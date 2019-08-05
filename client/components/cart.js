@@ -36,14 +36,14 @@ class Cart extends Component {
                     <button>X</button>
                   </li>
                   <p>
-                    {item && item.orderItem.quantity}X{item.price}
+                    {item.orderItem && item.orderItem.quantity}X{item.price}
                   </p>
                 </div>
               ))}
             </ul>
             <b>
               Total: ${cart.reduce(
-                (a, b) => a + b.price * b.orderItem.quantity,
+                (a, b) => a + b.price * (b.orderItem && b.orderItem.quantity),
                 0
               )}
             </b>
