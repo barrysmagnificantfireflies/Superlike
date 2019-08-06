@@ -2,6 +2,7 @@ import React from 'react'
 import {connect} from 'react-redux'
 import PropTypes from 'prop-types'
 import {auth} from '../store'
+import Emoji from './emoji'
 
 //material UI imports
 import Button from '@material-ui/core/Button'
@@ -50,6 +51,17 @@ const AuthForm = props => {
     <Container component="main" maxWidth="xs">
       <CssBaseline />
       <div className={classes.paper}>
+        <p
+          style={{
+            position: 'absolute',
+            left: '29px',
+            top: '80px',
+            fontSize: '64px',
+            lineHeight: '86px'
+          }}
+        >
+          Who will you be today? <Emoji symbol="🤔" />
+        </p>
         <Typography component="h1" variant="h5">
           {displayName}
         </Typography>
