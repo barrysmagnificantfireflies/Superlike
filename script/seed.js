@@ -21,7 +21,7 @@ const items = [
     category: 'Romantic',
     name: 'Bob',
     imageUrl: 'https://i.imgur.com/U6Hundu.jpg',
-    price: '300.0',
+    price: '300.00',
     quantity: 50,
     description: 'tbh I just want to get some free chipotle out of this'
   },
@@ -29,7 +29,7 @@ const items = [
     category: 'Romantic',
     name: 'Coolguy7657',
     imageUrl: 'https://i.imgur.com/1DU1fiC.png',
-    price: '300.0',
+    price: '300.00',
     quantity: 50,
     description: 'let me entice you with my luscious locks'
   },
@@ -38,7 +38,7 @@ const items = [
     name: 'DogLover3092',
     imageUrl:
       'https://cdn2.littlethings.com/app/uploads/2017/05/cute-dog-golden-retriever-600x600.jpg',
-    price: '5.0',
+    price: '5.00',
     quantity: 50,
     description:
       'Recently single dog dad looking for someone to give all my doggos the pets'
@@ -47,7 +47,7 @@ const items = [
     category: 'Romantic',
     name: 'LINDA',
     imageUrl: 'https://i.imgur.com/fVPQa7S.jpg',
-    price: '5.0',
+    price: '5.00',
     quantity: 50,
     description: `I heard you like bad girls - well I'm bad at everything so you're in luck`
   },
@@ -55,15 +55,16 @@ const items = [
     category: 'Funny',
     name: 'FunLovin43890',
     imageUrl: 'https://i.imgur.com/pd37eEc.jpg',
-    price: '5.0',
+    price: '5.00',
     quantity: 50,
     description:
       'Free spirit trapped in the golden handcuffs of my corporate job'
   },
   {
     category: 'Serious',
-    name: 'Greg',
-    price: '5.0',
+    name: 'Rocky',
+    imageUrl: 'https://i.imgur.com/nuvXJy1.jpg',
+    price: '5.00',
     quantity: 50,
     description: `I am taller than 6 foot`
   },
@@ -71,39 +72,39 @@ const items = [
     category: 'Funny',
     name: 'Starlight',
     imageUrl: 'https://i.imgur.com/7LWbTUV.jpg',
-    price: '5.0',
+    price: '5.00',
     quantity: 50,
     description: `For our first date, I'll take you to this non-GMO, cage-free quinoa bar. Everything there is quinoa: the food, the drinks, the silverware, the staff. The place has those dimly lit Thomas Edison bulbs that make it so hard to even read the menu.`
   },
   {
     category: 'Romantic',
     name: 'Ron',
+    imageUrl: 'https://i.imgur.com/hv3EzJt.jpg',
     price: '8.00',
     quantity: 5,
     description: `They say you are what you eat, but I don't remember eating a LEGEND`
   },
   {
     category: 'Funny',
-    name: 'Nick',
-    imageUrl:
-      'https://cdn2.littlethings.com/app/uploads/2017/05/cute-dog-golden-retriever-600x600.jpg',
-    price: '5.0',
+    name: 'Daniel',
+    imageUrl: 'https://i.imgur.com/lYinfrd.jpg',
+    price: '5.00',
     quantity: 50,
     description: `"Five out of five stars - would totally reccomend" - girl who swiped right a few months ago`
   },
   {
     category: 'Serious',
-    name: 'Greg',
-    imageUrl: 'https://i.imgur.com/6NxxnDC.png',
-    price: '5.0',
+    name: 'Ruby',
+    imageUrl: 'https://i.imgur.com/rOoBCvM.jpg',
+    price: '5.00',
     quantity: 50,
-    description: 'Just here in the NYC for a few days - only hook-ups plz'
+    description: 'I will [git] commit to you for the rest of my life!'
   },
   {
     category: 'Funny',
     name: 'Ginger',
     imageUrl: 'https://i.imgur.com/GqOLQkz.jpg',
-    price: '5.0',
+    price: '5.00',
     quantity: 50,
     description: `Can't take me to the movies cuz they don't allow snacks`
   },
@@ -111,7 +112,7 @@ const items = [
     category: 'Funny',
     name: 'Greg',
     imageUrl: 'https://i.imgur.com/0M7xpLb.jpg',
-    price: '5.0',
+    price: '5.00',
     quantity: 50,
     description: 'Just here in the NYC for a few days - only hook-ups plz'
   }

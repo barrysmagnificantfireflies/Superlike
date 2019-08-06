@@ -56,7 +56,7 @@ const AuthForm = props => {
             position: 'absolute',
             left: '29px',
             top: '80px',
-            fontSize: '64px',
+            fontSize: '45px',
             lineHeight: '86px'
           }}
         >

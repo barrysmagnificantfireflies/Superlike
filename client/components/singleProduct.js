@@ -49,6 +49,7 @@ class SingleProduct extends React.Component {
     return (
       <div align="center">
         <Card>
+          <h2 style={{fontFamily: 'Roboto'}}>Slide into your DMs like...</h2>
           <CardActionArea>
             <CardMedia
               style={{height: 600, width: 600, border: 1, borderRadius: 24}}
@@ -63,7 +64,7 @@ class SingleProduct extends React.Component {
                 {product && product.description}
               </Typography>
               <Typography gutterBottom component="p" align="center">
-                Price: $ {product && product.price}0
+                Price: $ {product && product.price}
               </Typography>
               <Button
                 variant="contained"
