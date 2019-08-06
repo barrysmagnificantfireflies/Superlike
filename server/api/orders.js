@@ -65,3 +65,17 @@ router.put('/', async (req, res, next) => {
     next(error)
   }
 })
+
+router.put('/remove-item', async (req, res, next) => {
+  try {
+    const userId = req.body.userId
+    const itemId = req.body.itemId
+    let order = await Order.findCart(userId)
+    await OrderItem.removeItem(order.id, itemId)
+    const cart = await Order.findCart(userId)
+    console.log('0 cart analysis', cart.items)
+    res.send(cart.items)
+  } catch (error) {
+    next(error)
+  }
+})
