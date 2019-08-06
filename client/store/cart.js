@@ -72,7 +72,11 @@ export const cartReducer = (cart = defaultCart, action) => {
         return cart
       }
     case REMOVE_ITEM:
-      if (action.cart[0] && action.cart[0].orderItem.quantity === 0) {
+      if (
+        action.cart.length > 1 &&
+        action.cart[0] &&
+        action.cart[0].orderItem.quantity === 0
+      ) {
         return []
       } else {
         return action.cart
