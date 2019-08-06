@@ -32,11 +32,10 @@ const Navbar = ({handleClick, isLoggedIn}) => (
             <Link to="/cart" style={{padding: 15, color: 'black'}}>
               Cart
             </Link>
-            <a
-              href="#"
-              onClick={handleClick}
-              style={{padding: 15, color: 'black'}}
-            >
+            <Link to="/reviews" style={{padding: 15}}>
+              Reviews
+            </Link>
+            <a href="#" onClick={handleClick} style={{padding: 15}}>
               Logout
             </a>
           </Typography>
@@ -53,6 +52,9 @@ const Navbar = ({handleClick, isLoggedIn}) => (
             </Link>
             <Link to="/cart" style={{padding: 15}}>
               Cart
+            </Link>
+            <Link to="/reviews" style={{padding: 15}}>
+              Reviews
             </Link>
             <Link to="/login" style={{padding: 15}}>
               Login
