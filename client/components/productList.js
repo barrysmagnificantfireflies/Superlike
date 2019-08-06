@@ -19,7 +19,7 @@ class ProductList extends Component {
           {console.log(this.props.products)}
           {Array.isArray(this.props.products) &&
             this.props.products.map(product => (
-              <Grid item xs={12} sm={6} lg={4} xl={3}>
+              <Grid item xs={12} sm={6} lg={4} xl={3} style={{padding: 5}}>
                 <Product key={product.id} product={product} />
               </Grid>
             ))}
