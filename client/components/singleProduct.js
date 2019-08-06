@@ -10,8 +10,10 @@ import Button from '@material-ui/core/Button'
 import Typography from '@material-ui/core/Typography'
 import {makeStyles} from '@material-ui/core/styles'
 import CardActionArea from '@material-ui/core/CardActionArea'
+import {borders} from '@material-ui/system'
 // import Toastify from 'toastify-js'
-// import Firework from './fireworks'
+import Firework from './fireworks'
+import fireworks from 'fireworks'
 class SingleProduct extends React.Component {
   constructor() {
     super()
@@ -32,7 +34,14 @@ class SingleProduct extends React.Component {
     //   gravity: "top",
     //   position: 'left'
     // }).showToast()
+
     console.log('singleproduct component', this.props.product)
+    fireworks({
+      x: window.innerWidth / 2,
+      y: window.innerHeight / 1.5,
+      colors: ['#cc3333', '#4CAF50', '#81C784']
+    })
+
     await this.props.addItem(
       this.props.userId,
       this.props.match.params.id,
@@ -47,7 +56,7 @@ class SingleProduct extends React.Component {
         <Card>
           <CardActionArea>
             <CardMedia
-              style={{height: 600, width: 600}}
+              style={{height: 600, width: 600, border: 1, borderRadius: 24}}
               image={product && product.imageUrl}
               title={product && product.name}
             />
@@ -59,14 +68,14 @@ class SingleProduct extends React.Component {
                 {product && product.description}
               </Typography>
               <Typography gutterBottom component="p" align="center">
-                Price: $ {product && product.price}
+                Price: $ {product && product.price}0
               </Typography>
               <Button
                 variant="contained"
                 onClick={this.onClick}
                 color="primary"
               >
-                Primary
+                BUY NOW!
               </Button>
             </CardContent>
           </CardActionArea>
