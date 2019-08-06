@@ -20,7 +20,16 @@ const items = [
   },
   {
     category: 'Romantic',
-    name: 'Orlando',
+    name: 'Bob',
+    imageUrl: 'https://i.imgur.com/U6Hundu.jpg',
+    price: '300.0',
+    quantity: 50,
+    description: 'tbh I just want to get some free chipotle out of this'
+  },
+  {
+    category: 'Romantic',
+    name: 'Coolguy7657',
+    imageUrl: 'https://i.imgur.com/1DU1fiC.png',
     price: '300.0',
     quantity: 50,
     description: 'let me entice you with my luscious locks'
@@ -37,12 +46,11 @@ const items = [
   },
   {
     category: 'Romantic',
-    name: 'Molly',
-    imageUrl:
-      'https://media.licdn.com/dms/image/C4E03AQEKQTeK1D6s7A/profile-displayphoto-shrink_200_200/0?e=1568851200&v=beta&t=Ryp7wkm_bpov7SkYqrfhyp5RToDH27ZX-1EYC6r7pcQ',
+    name: 'LINDA',
+    imageUrl: 'https://i.imgur.com/fVPQa7S.jpg',
     price: '5.0',
     quantity: 50,
-    description: 'Goofy girl with a huge heart!'
+    description: `I heard you like bad girls - well I'm bad at everything so you're in luck`
   },
   {
     category: 'Funny',
@@ -61,7 +69,8 @@ const items = [
   },
   {
     category: 'Funny',
-    name: 'Paul',
+    name: 'Starlight',
+    imageUrl: 'https://i.imgur.com/7LWbTUV.jpg',
     price: '5.0',
     quantity: 50,
     description: `For our first date, I'll take you to this non-GMO, cage-free quinoa bar. Everything there is quinoa: the food, the drinks, the silverware, the staff. The place has those dimly lit Thomas Edison bulbs that make it so hard to even read the menu.`
@@ -85,8 +94,7 @@ const items = [
   {
     category: 'Serious',
     name: 'Greg',
-    imageUrl:
-      'https://cdn2.littlethings.com/app/uploads/2017/05/cute-dog-golden-retriever-600x600.jpg',
+    imageUrl: 'https://i.imgur.com/6NxxnDC.png',
     price: '5.0',
     quantity: 50,
     description: 'Just here in the NYC for a few days - only hook-ups plz'
@@ -94,6 +102,7 @@ const items = [
   {
     category: 'Funny',
     name: 'Ginger',
+    imageUrl: 'https://i.imgur.com/GqOLQkz.jpg',
     price: '5.0',
     quantity: 50,
     description: `Can't take me to the movies cuz they don't allow snacks`

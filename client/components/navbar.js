@@ -10,7 +10,7 @@ import {flexbox} from '@material-ui/system'
 
 const Navbar = ({handleClick, isLoggedIn}) => (
   <div>
-    <AppBar position="static" style={{background: '#AA2F2A'}}>
+    <AppBar position="static" style={{background: '#90C0AC'}}>
       {isLoggedIn ? (
         <Toolbar>
           <img
@@ -20,23 +20,23 @@ const Navbar = ({handleClick, isLoggedIn}) => (
           />
           <Typography variant="button">
             {/* The navbar will show these links after you log in */}
-            <Link to="/home" style={{padding: 15, color: 'white'}}>
+            <Link to="/home" style={{padding: 15, color: 'black'}}>
               {' '}
               Home
             </Link>
-            <Link to="/products" style={{padding: 15, color: 'white'}}>
+            <Link to="/products" style={{padding: 15, color: 'black'}}>
               Products
             </Link>
-            <Link to="/account" style={{padding: 15, color: 'white'}}>
+            <Link to="/account" style={{padding: 15, color: 'black'}}>
               Account
             </Link>
-            <Link to="/cart" style={{padding: 15, color: 'white'}}>
+            <Link to="/cart" style={{padding: 15, color: 'black'}}>
               Cart
             </Link>
             <a
               href="#"
               onClick={handleClick}
-              style={{padding: 15, color: 'white'}}
+              style={{padding: 15, color: 'black'}}
             >
               Logout
             </a>
