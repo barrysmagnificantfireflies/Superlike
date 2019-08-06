@@ -8,7 +8,12 @@ import CardContent from '@material-ui/core/CardContent'
 import CardMedia from '@material-ui/core/CardMedia'
 import Button from '@material-ui/core/Button'
 import Typography from '@material-ui/core/Typography'
-
+import {makeStyles} from '@material-ui/core/styles'
+import CardActionArea from '@material-ui/core/CardActionArea'
+import {borders} from '@material-ui/system'
+// import Toastify from 'toastify-js'
+import Firework from './fireworks'
+import fireworks from 'fireworks'
 class SingleProduct extends React.Component {
   constructor() {
     super()
@@ -17,52 +22,63 @@ class SingleProduct extends React.Component {
   componentDidMount() {
     this.props.showProduct(this.props.match.params.id)
   }
+
   async onClick(event) {
     // someone else send this to  the cart
     event.preventDefault()
-    console.log('these are the props', this.props)
+    // Toastify({
+    //   text: 'Item Added to Cart',
+    //   duration: 3000,
+    //   backgroundColor: 'linear-gradient(to right, #00b09b, #96c93d)',
+    //   className: 'info',
+    //   gravity: "top",
+    //   position: 'left'
+    // }).showToast()
+
+    console.log('singleproduct component', this.props.product)
+    fireworks({
+      x: window.innerWidth / 2,
+      y: window.innerHeight / 1.5,
+      colors: ['#cc3333', '#4CAF50', '#81C784']
+    })
+
     await this.props.addItem(
       this.props.userId,
       this.props.match.params.id,
       this.props.product.price
     )
   }
+
   render() {
     const product = this.props.product
     return (
-      // <div>
-      //   <h1>{product && product.name}</h1>
-      //   <h3>{product && product.category}</h3>
-      //   <img src={product && product.imageUrl} />
-      //   <p> price = {product && product.price} </p>
-      //   <p> {product && product.description} </p>
-      //   <p>{product && product.quantity}</p>
-      //   <button type="submit" onClick={this.onClick}>
-      //     BUY IT NOW!
-      //   </button>
       <div align="center">
         <Card>
-          <CardMedia
-            style={{height: 600, width: 600}}
-            image={product && product.imageUrl}
-            title={product && product.name}
-          />
-          <CardContent>
-            <Typography gutterBottom variant="headline" component="h1">
-              {product && product.name}
-            </Typography>
-            <Typography gutterBottom component="p">
-              {product && product.description}
-            </Typography>
-            <Typography gutterBottom component="p" align="left">
-              Price: $ {product && product.price}
-            </Typography>
-          </CardContent>
-          <CardActions>
-            <button type="submit" onClick={this.onClick}>
-              BUY IT NOW!
-            </button>
-          </CardActions>
+          <CardActionArea>
+            <CardMedia
+              style={{height: 600, width: 600, border: 1, borderRadius: 24}}
+              image={product && product.imageUrl}
+              title={product && product.name}
+            />
+            <CardContent>
+              <Typography gutterBottom variant="headline" component="h1">
+                {product && product.name}
+              </Typography>
+              <Typography gutterBottom component="p">
+                {product && product.description}
+              </Typography>
+              <Typography gutterBottom component="p" align="center">
+                Price: $ {product && product.price}0
+              </Typography>
+              <Button
+                variant="contained"
+                onClick={this.onClick}
+                color="primary"
+              >
+                BUY NOW!
+              </Button>
+            </CardContent>
+          </CardActionArea>
         </Card>
       </div>
     )

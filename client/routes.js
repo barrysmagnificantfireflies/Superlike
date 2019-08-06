@@ -13,6 +13,8 @@ import {
   Reviews
 } from './components'
 import {me} from './store'
+import {getProductsThunk} from './store/productList'
+import {getCartThunk} from './store/cart'
 // import { Product } from './components/product';
 // import singleProduct from './components/singleProduct';
 
@@ -65,6 +67,7 @@ const mapDispatch = dispatch => {
   return {
     loadInitialData() {
       dispatch(me())
+      //dispatch(getProductsThunk()), dispatch(getCartThunk())
     }
   }
 }

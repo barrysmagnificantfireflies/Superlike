@@ -11,12 +11,6 @@ label {
   display: block;
 }
 
-export const navStyle = {
-  color: #3e60a0;
-  height: 80px;
-  padding: 30px;
-}
-
 form div {
   margin: 1em;
   display: inline-block;
