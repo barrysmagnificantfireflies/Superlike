@@ -61,8 +61,6 @@ class SingleProduct extends React.Component {
               <Typography gutterBottom component="p" align="center">
                 Price: $ {product && product.price}
               </Typography>
-            </CardContent>
-            <CardActions align="center">
               <Button
                 variant="contained"
                 onClick={this.onClick}
@@ -70,7 +68,7 @@ class SingleProduct extends React.Component {
               >
                 Primary
               </Button>
-            </CardActions>
+            </CardContent>
           </CardActionArea>
         </Card>
       </div>
