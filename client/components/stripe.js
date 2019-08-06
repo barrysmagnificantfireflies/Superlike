@@ -9,7 +9,10 @@ class Stripe extends Component {
         <div className="example">
           <h1>Please Enter Your Credit Card Info Below!</h1>
           <Elements>
-            <CheckoutForm />
+            <CheckoutForm
+              total={this.props.total}
+              checkout={this.props.checkout}
+            />
           </Elements>
         </div>
       </StripeProvider>
