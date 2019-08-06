@@ -21,7 +21,7 @@ router.get('/:userId', isCorrectUser, async (req, res, next) => {
   }
 })
 //need to add back in teh check for the correct user
-router.get('/:userId/cart', async (req, res, next) => {
+router.get('/:userId/cart', isCorrectUser, async (req, res, next) => {
   try {
     const cart = await Order.findCart(req.params.userId)
     res.json(cart)
