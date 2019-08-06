@@ -46,9 +46,7 @@ export const removeItemThunk = (userId, itemId) => async dispatch => {
       userId,
       itemId
     })
-    console.log('0 cart analysis pre', cart.data)
     dispatch(removeItem(cart.data))
-    console.log('0 cart analysis post', cart.data)
   } catch (error) {
     console.error(error)
   }
@@ -72,7 +70,11 @@ export const cartReducer = (cart = defaultCart, action) => {
         return cart
       }
     case REMOVE_ITEM:
-      if (action.cart[0] && action.cart[0].orderItem.quantity === 0) {
+      if (
+        action.cart.length > 1 &&
+        action.cart[0] &&
+        action.cart[0].orderItem.quantity === 0
+      ) {
         return []
       } else {
         return action.cart

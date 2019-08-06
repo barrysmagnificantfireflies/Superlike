@@ -9,24 +9,31 @@ import Typography from '@material-ui/core/Typography'
 
 const Navbar = ({handleClick, isLoggedIn}) => (
   <div>
-    <img src="public/images/logopic.png" align="center" />
-    <AppBar position="static" style={{background: '#E9967A'}}>
+    <AppBar position="static" style={{background: '#90C0AC'}}>
       {isLoggedIn ? (
         <Toolbar>
+          <img
+            src="https://i.imgur.com/6NxxnDC.png"
+            align="center"
+            style={{width: 150, height: 100}}
+          />
           <Typography variant="button">
             {/* The navbar will show these links after you log in */}
-            <Link to="/home" style={{padding: 15}}>
+            <Link to="/home" style={{padding: 15, color: 'black'}}>
               {' '}
               Home
             </Link>
-            <Link to="/products" style={{padding: 15}}>
+            <Link to="/products" style={{padding: 15, color: 'black'}}>
               Products
             </Link>
-            <Link to="/account" style={{padding: 15}}>
+            <Link to="/account" style={{padding: 15, color: 'black'}}>
               Account
             </Link>
-            <Link to="/cart" style={{padding: 15}}>
+            <Link to="/cart" style={{padding: 15, color: 'black'}}>
               Cart
+            </Link>
+            <Link to="/reviews" style={{padding: 15}}>
+              Reviews
             </Link>
             <a href="#" onClick={handleClick} style={{padding: 15}}>
               Logout
@@ -46,6 +53,9 @@ const Navbar = ({handleClick, isLoggedIn}) => (
             <Link to="/cart" style={{padding: 15}}>
               Cart
             </Link>
+            <Link to="/reviews" style={{padding: 15}}>
+              Reviews
+            </Link>
             <Link to="/login" style={{padding: 15}}>
               Login
             </Link>
@@ -59,7 +69,6 @@ const Navbar = ({handleClick, isLoggedIn}) => (
     <hr />
   </div>
 )
-
 /**
  * CONTAINER
  */

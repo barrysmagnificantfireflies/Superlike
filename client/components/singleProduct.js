@@ -3,16 +3,12 @@ import {connect} from 'react-redux'
 import {addItemThunk} from './../store/cart'
 import {showProductThunk} from './../store/productList'
 import Card from '@material-ui/core/Card'
-import CardActions from '@material-ui/core/CardActions'
 import CardContent from '@material-ui/core/CardContent'
 import CardMedia from '@material-ui/core/CardMedia'
 import Button from '@material-ui/core/Button'
 import Typography from '@material-ui/core/Typography'
-import {makeStyles} from '@material-ui/core/styles'
 import CardActionArea from '@material-ui/core/CardActionArea'
-import {borders} from '@material-ui/system'
 // import Toastify from 'toastify-js'
-import Firework from './fireworks'
 import fireworks from 'fireworks'
 class SingleProduct extends React.Component {
   constructor() {
@@ -35,7 +31,6 @@ class SingleProduct extends React.Component {
     //   position: 'left'
     // }).showToast()
 
-    console.log('singleproduct component', this.props.product)
     fireworks({
       x: window.innerWidth / 2,
       y: window.innerHeight / 1.5,
