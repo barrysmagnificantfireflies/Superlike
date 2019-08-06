@@ -34,7 +34,6 @@ class Cart extends Component {
         style={{
           width: 2000,
           height: 5000,
-          background: '#B2919C',
           align: 'center'
         }}
       >

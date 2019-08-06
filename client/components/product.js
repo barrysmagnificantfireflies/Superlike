@@ -10,9 +10,16 @@ import Typography from '@material-ui/core/Typography'
 export const Product = props => {
   return (
     <div>
-      <Card>
+      <Card
+        style={{
+          width: 400,
+          margin: 50,
+          background: '#BAC1B8',
+          fontFamily: 'Apple Color Emoji'
+        }}
+      >
         <CardMedia
-          style={{height: 500, width: 400}}
+          style={{height: 400, width: 400, align: 'center'}}
           image={props.product.imageUrl}
           title={props.product.name}
         />
