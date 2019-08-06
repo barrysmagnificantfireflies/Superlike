@@ -27,7 +27,6 @@ const OrderItem = db.define('orderItem', {
 })
 
 OrderItem.prototype.addOne = function() {
-  console.log(this)
   return this.quantity++
 }
 
@@ -52,11 +51,9 @@ OrderItem.checkItem = async function(itemId) {
 }
 
 OrderItem.addItem = async function(orderId, itemId) {
-  console.log(orderId, itemId)
   try {
     let updateCart
     if (OrderItem.checkOrder(orderId)) {
-      console.log(OrderItem.checkOrder(orderId))
       if (OrderItem.checkItem(itemId)) {
         updateCart = await OrderItem.update(
           {
@@ -91,10 +88,9 @@ OrderItem.removeItem = async (orderId, itemId) => {
       itemId
     }
   })
-  itemToRemove.decrement('quantity', {by: 1})
+  await itemToRemove.decrement('quantity', {by: 1})
   if (itemToRemove.quantity === 0) {
-    console.log(itemToRemove.quantity)
-    OrderItem.destroy({
+    await OrderItem.destroy({
       where: {
         orderId,
         itemId
