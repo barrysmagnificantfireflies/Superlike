@@ -8,7 +8,7 @@ import CardMedia from '@material-ui/core/CardMedia'
 import Button from '@material-ui/core/Button'
 import Typography from '@material-ui/core/Typography'
 import CardActionArea from '@material-ui/core/CardActionArea'
-// import Toastify from 'toastify-js'
+import Toastify from 'toastify-js'
 import fireworks from 'fireworks'
 class SingleProduct extends React.Component {
   constructor() {
@@ -22,14 +22,14 @@ class SingleProduct extends React.Component {
   async onClick(event) {
     // someone else send this to  the cart
     event.preventDefault()
-    // Toastify({
-    //   text: 'Item Added to Cart',
-    //   duration: 3000,
-    //   backgroundColor: 'linear-gradient(to right, #00b09b, #96c93d)',
-    //   className: 'info',
-    //   gravity: "top",
-    //   position: 'left'
-    // }).showToast()
+    Toastify({
+      text: 'Item Added to Cart',
+      duration: 3000,
+      backgroundColor: 'linear-gradient(to right, #00b09b, #96c93d)',
+      className: 'info',
+      gravity: 'top',
+      position: 'right'
+    }).showToast()
 
     fireworks({
       x: window.innerWidth / 2,
