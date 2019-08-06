@@ -1,14 +1,15 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import {getCartThunk, emptyCartThunk, removeItemThunk} from './../store/cart'
+import {getProductsThunk} from '../store/productList'
 import Card from '@material-ui/core/Card'
 import CardContent from '@material-ui/core/CardContent'
 import CardMedia from '@material-ui/core/CardMedia'
 import Typography from '@material-ui/core/Typography'
 
 class Cart extends Component {
-  constructor() {
-    super()
+  constructor(props) {
+    super(props)
     this.checkout = this.checkout.bind(this)
     this.removeItem = this.removeItem.bind(this)
   }
@@ -20,7 +21,6 @@ class Cart extends Component {
     this.props.emptyCart(this.props.userId)
     this.props.getCart(this.props.userId)
     //alert('Checked Out')
-    this.forceUpdate()
   }
 
   removeItem(itemId) {
@@ -109,7 +109,8 @@ const mapDispatchToProps = () => {
     return {
       getCart: id => dispatch(getCartThunk(id)),
       emptyCart: id => dispatch(emptyCartThunk(id)),
-      removeItem: (userId, itemId) => dispatch(removeItemThunk(userId, itemId))
+      removeItem: (userId, itemId) => dispatch(removeItemThunk(userId, itemId)),
+      getProducts: () => dispatch(getProductsThunk())
     }
   }
 }

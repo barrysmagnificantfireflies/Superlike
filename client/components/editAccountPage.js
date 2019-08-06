@@ -2,6 +2,13 @@ import {connect} from 'react-redux'
 import React from 'react'
 import {updateUserThunk} from '../store/user'
 
+//material ui imports
+import clsx from 'clsx'
+import {makeStyles} from '@material-ui/core/styles'
+import MenuItem from '@material-ui/core/MenuItem'
+import TextField from '@material-ui/core/TextField'
+import Button from '@material-ui/core/Button'
+
 class EditAccountPage extends React.Component {
   constructor(props) {
     super(props)
@@ -28,7 +35,7 @@ class EditAccountPage extends React.Component {
   render() {
     return (
       <div>
-        <form onSubmit={this.handleSubmit}>
+        {/* <form onSubmit={this.handleSubmit}>
           <label htmlFor="email">Email:</label>
           <input
             type="text"
@@ -44,6 +51,34 @@ class EditAccountPage extends React.Component {
             onChange={this.handleChange}
           />
           <button type="submit">Submit Changes</button>
+        </form> */}
+        <form
+          onSubmit={this.handleSubmit}
+          style={{display: 'flex', flexWrap: 'wrap'}}
+          noValidate
+          autoComplete="off"
+        >
+          <TextField
+            name="email"
+            id="outlined-name"
+            label="Email"
+            value={this.state.email}
+            onChange={this.handleChange}
+            margin="normal"
+            variant="outlined"
+          />
+          <TextField
+            name="imageUrl"
+            id="outlined-name"
+            label="Image URL"
+            value={this.state.imageUrl}
+            onChange={this.handleChange}
+            margin="normal"
+            variant="outlined"
+          />
+          <Button type="submit" variant="contained" color="primary">
+            Submit Changes
+          </Button>
         </form>
       </div>
     )

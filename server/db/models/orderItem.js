@@ -92,7 +92,7 @@ OrderItem.removeItem = async (orderId, itemId) => {
     }
   })
   itemToRemove.decrement('quantity', {by: 1})
-  if (itemToRemove.quantity < 1) {
+  if (itemToRemove.quantity === 0) {
     console.log(itemToRemove.quantity)
     OrderItem.destroy({
       where: {
