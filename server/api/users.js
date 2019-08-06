@@ -1,6 +1,7 @@
 const router = require('express').Router()
 const {User, Order} = require('../db/models')
 const {isUser} = require('./utils')
+const stripe = require('stripe')('sk_test_4eC39HqLyjWDarjtT1zdp7dc')
 module.exports = router
 
 router.get('/', async (req, res, next) => {
@@ -54,11 +55,24 @@ router.put('/:userId', async (req, res, next) => {
 
 router.put('/:userId/checkout', async (req, res, next) => {
   try {
-    Order.checkout(req.params.userId) //flips the isPurchased value on the cart to true
-    Order.newCart(req.params.userId) //creates a new cart so that there is always a cart in the DB
+    await Order.checkout(req.params.userId) //flips the isPurchased value on the cart to true
+    await Order.newCart(req.params.userId) //creates a new cart so that there is always a cart in the DB
     res.sendStatus(201)
   } catch (error) {
     next(error)
+  }
+})
+router.post('/charge', async (req, res, next) => {
+  try {
+    let {status} = await stripe.charges.create({
+      amount: req.body.total,
+      currency: 'usd',
+      description: 'An example charge',
+      source: req.body.source
+    })
+    res.json({status})
+  } catch (err) {
+    next(err)
   }
 })
 
