@@ -79,19 +79,14 @@ class Cart extends Component {
                     0
                   )}
                 </b>
-                <button
-                  type="submit"
-                  onClick={this.checkout}
-                  style={{color: '#355451'}}
-                >
-                  CHECKOUT!
-                </button>
-               <Stripe
-                total={cart.reduce(
-                  (a, b) => a + b.price * (b.orderItem && b.orderItem.quantity),
-                  0
-                )}>
-              </Stripe>
+                <Stripe
+                  checkout={this.checkout}
+                  total={cart.reduce(
+                    (a, b) =>
+                      a + b.price * (b.orderItem && b.orderItem.quantity),
+                    0
+                  )}
+                />
               </div>
             )}
           </Typography>
