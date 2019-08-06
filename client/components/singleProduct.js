@@ -62,12 +62,16 @@ class SingleProduct extends React.Component {
                 Price: $ {product && product.price}
               </Typography>
             </CardContent>
+            <CardActions align="center">
+              <Button
+                variant="contained"
+                onClick={this.onClick}
+                color="primary"
+              >
+                Primary
+              </Button>
+            </CardActions>
           </CardActionArea>
-          <CardActions align="center">
-            <Button variant="contained" onClick={this.onClick} color="primary">
-              Primary
-            </Button>
-          </CardActions>
         </Card>
       </div>
     )
