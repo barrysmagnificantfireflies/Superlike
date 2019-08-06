@@ -39,7 +39,7 @@ class Cart extends Component {
                   <li key={item.id}>
                     <b>{item.name}</b>
                     <button onClick={() => this.removeItem(item.id)}>
-                      Remove Item
+                      Remove Item!
                     </button>
                   </li>
                   <p>
