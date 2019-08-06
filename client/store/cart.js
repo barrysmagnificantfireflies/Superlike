@@ -46,9 +46,7 @@ export const removeItemThunk = (userId, itemId) => async dispatch => {
       userId,
       itemId
     })
-    console.log('0 cart analysis pre', cart.data)
     dispatch(removeItem(cart.data))
-    console.log('0 cart analysis post', cart.data)
   } catch (error) {
     console.error(error)
   }
