@@ -10,7 +10,10 @@ export const UserHome = props => {
   return (
     <div align="center">
       <h1>Welcome to Super Like</h1>
-      <img src="https://www.pinclipart.com/picdir/middle/13-132184_clip-art-transparent-library-national-day-june-real.png" />
+      <img
+        className="test"
+        src="https://www.pinclipart.com/picdir/middle/13-132184_clip-art-transparent-library-national-day-june-real.png"
+      />
       <p>
         Our goal is to make sure you find the person of your dreams without ever
         having to show who you really are! Super Like takes the hardest part of
