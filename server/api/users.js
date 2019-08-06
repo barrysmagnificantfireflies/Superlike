@@ -17,7 +17,6 @@ router.get('/', async (req, res, next) => {
     next(err)
   }
 })
-
 router.get('/:id', isUser, async (req, res, next) => {
   try {
     const user = await User.findByPk(req.params.id)
