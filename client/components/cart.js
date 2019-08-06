@@ -2,6 +2,7 @@ import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import {getCartThunk, emptyCartThunk, removeItemThunk} from './../store/cart'
 import {getProductsThunk} from '../store/productList'
+import Stripe from './stripe'
 import Card from '@material-ui/core/Card'
 import CardContent from '@material-ui/core/CardContent'
 import Typography from '@material-ui/core/Typography'
@@ -19,6 +20,7 @@ class Cart extends Component {
     event.preventDefault()
     this.props.emptyCart(this.props.userId)
     this.props.getCart(this.props.userId)
+
     //alert('Checked Out')
   }
 
@@ -70,14 +72,12 @@ class Cart extends Component {
                     </p>
                   </div>
                 ))}
-
                 <b>
                   Total: ${cart.reduce(
                     (a, b) =>
                       a + b.price * (b.orderItem && b.orderItem.quantity),
                     0
                   )}
-                  {'              '}
                 </b>
                 <button
                   type="submit"
@@ -86,6 +86,12 @@ class Cart extends Component {
                 >
                   CHECKOUT!
                 </button>
+               <Stripe
+                total={cart.reduce(
+                  (a, b) => a + b.price * (b.orderItem && b.orderItem.quantity),
+                  0
+                )}>
+              </Stripe>
               </div>
             )}
           </Typography>
@@ -94,7 +100,6 @@ class Cart extends Component {
     )
   }
 }
-
 const mapStateToProps = state => {
   return {
     cart: state.cart,
