@@ -35,30 +35,6 @@ export default class Reviews extends Component {
                 variant="headline"
                 component="h2"
               >
-                - Andrew
-              </Typography>
-              <Typography
-                align="center"
-                gutterBottom
-                variant="headline"
-                component="p"
-              >
-                " This service is fantastic! "
-              </Typography>
-            </CardContent>
-          </Card>
-          <Card>
-            <CardMedia
-              style={{height: 300, width: 300}}
-              image="http://www.eurogeosurveys.org/wp-content/uploads/2014/02/default_profile_pic.jpg"
-            />
-            <CardContent>
-              <Typography
-                align="center"
-                gutterBottom
-                variant="headline"
-                component="h2"
-              >
                 - Molly
               </Typography>
               <Typography
@@ -142,6 +118,30 @@ export default class Reviews extends Component {
               >
                 " I'm a die hard Mets fan, but with <br /> Super Like I'm a
                 Yankee fan and <br /> it's amazing. "
+              </Typography>
+            </CardContent>
+          </Card>
+          <Card>
+            <CardMedia
+              style={{height: 300, width: 300}}
+              image="https://i.imgur.com/ZKwzs3u.jpg"
+            />
+            <CardContent>
+              <Typography
+                align="center"
+                gutterBottom
+                variant="headline"
+                component="h2"
+              >
+                - Lonny
+              </Typography>
+              <Typography
+                align="center"
+                gutterBottom
+                variant="headline"
+                component="p"
+              >
+                " Super Like lets me live like I'm young again! "
               </Typography>
             </CardContent>
           </Card>

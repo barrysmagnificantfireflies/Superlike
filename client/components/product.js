@@ -15,7 +15,7 @@ export const Product = props => {
           width: 400,
           margin: 50,
           background: '#BAC1B8',
-          fontFamily: 'Apple Color Emoji'
+          fontFamily: 'Helvetica Neue'
         }}
       >
         <CardMedia
