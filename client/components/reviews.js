@@ -97,7 +97,7 @@ export default class Reviews extends Component {
           <Card>
             <CardMedia
               style={{height: 300, width: 300}}
-              image="http://www.eurogeosurveys.org/wp-content/uploads/2014/02/default_profile_pic.jpg"
+              image="https://files.slack.com/files-pri/T024FPYBQ-FL7LUU17B/image_from_ios.jpg"
             />
             <CardContent>
               <Typography
