@@ -7,7 +7,7 @@ class CheckoutForm extends React.Component {
     this.state = {complete: false}
     this.submit = this.submit.bind(this)
   }
-  async submit(ev) {
+  async submit() {
     try {
       let {token} = await this.props.stripe.createToken({name: 'Name'})
       let response = Axios.post('/api/users/charge', {
@@ -16,7 +16,12 @@ class CheckoutForm extends React.Component {
       })
       if (response.ok) this.setState({complete: true})
     } catch (error) {
-      console.error(error)
+      alert(
+        'credit card information failed. To checkout without paying please click OK!'
+      )
+      console.log(this.props)
+      this.setState({complete: true})
+      // console.error(error)
     }
   }
 
@@ -27,6 +32,7 @@ class CheckoutForm extends React.Component {
     }
     return (
       <div className="checkout">
+        {console.log(this.props)}
         <p>Purchase Now</p>
         <CardElement />
         <p />

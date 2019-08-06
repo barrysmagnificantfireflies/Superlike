@@ -18,10 +18,9 @@ class Cart extends Component {
   }
   checkout() {
     event.preventDefault()
+    console.log('here')
     this.props.emptyCart(this.props.userId)
     this.props.getCart(this.props.userId)
-
-    //alert('Checked Out')
   }
 
   removeItem(itemId) {
