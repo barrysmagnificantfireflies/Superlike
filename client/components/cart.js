@@ -4,7 +4,6 @@ import {getCartThunk, emptyCartThunk, removeItemThunk} from './../store/cart'
 import {getProductsThunk} from '../store/productList'
 import Card from '@material-ui/core/Card'
 import CardContent from '@material-ui/core/CardContent'
-import CardMedia from '@material-ui/core/CardMedia'
 import Typography from '@material-ui/core/Typography'
 
 class Cart extends Component {
