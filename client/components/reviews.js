@@ -4,13 +4,23 @@ import Card from '@material-ui/core/Card'
 import CardMedia from '@material-ui/core/CardMedia'
 import CardContent from '@material-ui/core/CardContent'
 import Typography from '@material-ui/core/Typography'
+import {flexbox} from '@material-ui/system'
 
 export default class Reviews extends Component {
   render() {
     return (
       <div>
         <h1 align="center">Hear from satisifed customers!</h1>
-        <Grid align="center" container spacing={24} style={{padding: 30}}>
+        <Grid
+          align="center"
+          container
+          spacing={24}
+          style={{
+            padding: 30,
+            display: 'flex',
+            justifyContent: 'space-between'
+          }}
+        >
           <Card>
             <CardMedia
               style={{height: 300, width: 300}}
