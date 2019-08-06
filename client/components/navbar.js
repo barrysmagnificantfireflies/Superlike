@@ -18,26 +18,32 @@ const Navbar = ({handleClick, isLoggedIn}) => (
             style={{width: 150, height: 100}}
           />
           <Typography variant="button">
-            {/* The navbar will show these links after you log in */}
-            <Link to="/home" style={{padding: 15, color: 'black'}}>
-              {' '}
-              Home
-            </Link>
-            <Link to="/products" style={{padding: 15, color: 'black'}}>
-              Products
-            </Link>
-            <Link to="/account" style={{padding: 15, color: 'black'}}>
-              Account
-            </Link>
-            <Link to="/cart" style={{padding: 15, color: 'black'}}>
-              Cart
-            </Link>
-            <Link to="/reviews" style={{padding: 15}}>
-              Reviews
-            </Link>
-            <a href="#" onClick={handleClick} style={{padding: 15}}>
-              Logout
-            </a>
+            <div align="right">
+              {/* The navbar will show these links after you log in */}
+              <Link to="/home" style={{padding: 15, color: 'black'}}>
+                {' '}
+                Home
+              </Link>
+              <Link to="/products" style={{padding: 15, color: 'black'}}>
+                Products
+              </Link>
+              <Link to="/account" style={{padding: 15, color: 'black'}}>
+                Account
+              </Link>
+              <Link to="/cart" style={{padding: 15, color: 'black'}}>
+                Cart
+              </Link>
+              <Link to="/reviews" style={{padding: 15, color: 'black'}}>
+                Reviews
+              </Link>
+              <a
+                href="#"
+                onClick={handleClick}
+                style={{padding: 15, color: 'black'}}
+              >
+                Logout
+              </a>
+            </div>
           </Typography>
         </Toolbar>
       ) : (

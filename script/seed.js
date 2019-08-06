@@ -11,12 +11,11 @@ const users = [
 const items = [
   {
     category: 'Funny',
-    name: 'Count Chocula',
-    imageUrl:
-      'https://res.cloudinary.com/teepublic/image/private/s--bKM9GG4P--/t_Preview/b_rgb:fffffe,c_limit,f_jpg,h_630,q_90,w_630/v1476761312/production/designs/740309_1.jpg',
-    price: '1.0',
+    name: 'Brad',
+    imageUrl: 'https://i.imgur.com/BcGBevT.jpg',
+    price: '1.00',
     quantity: 5,
-    description: 'I like chocolate and spooning'
+    description: `When you say "Jump!", I'll say "How high?" and when you say "3 feet", I'll reply with "That's too high, I don't jump that high."`
   },
   {
     category: 'Romantic',
@@ -54,10 +53,11 @@ const items = [
   },
   {
     category: 'Serious',
-    name: 'Greg',
+    name: 'Larry',
+    imgUrl: 'https://i.imgur.com/ZKwzs3u.jpg',
     price: '5.0',
     quantity: 50,
-    description: `I am taller than 6 foot`
+    description: `Have lots of love and wisdom to give to the younger generation. Only looking for love!`
   },
   {
     category: 'Funny',
