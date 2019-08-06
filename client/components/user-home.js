@@ -9,9 +9,9 @@ export const UserHome = props => {
   //const {email, imageUrl} = props
   return (
     <div align="center">
-      <h1>Welcome to Super Like</h1>
-      <img src="https://www.pinclipart.com/picdir/middle/13-132184_clip-art-transparent-library-national-day-june-real.png" />
-      <p>
+      <h1> Welcome to</h1>
+      <img src="https://i.imgur.com/6NxxnDC.png" />
+      <p style={{margin: 100, font: 24}}>
         Our goal is to make sure you find the person of your dreams without ever
         having to show who you really are! Super Like takes the hardest part of
         online dating - creating that eye catching profile - and delivers a
