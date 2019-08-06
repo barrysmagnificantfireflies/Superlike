@@ -12,6 +12,15 @@ router.get('/', async (req, res, next) => {
   }
 })
 
+router.put('/:itemId/edit', async (req, res, next) => {
+  try {
+    const updatedItem = await Item.update(req.body)
+    res.json(updatedItem)
+  } catch (error) {
+    console.error(error)
+  }
+})
+
 router.get('/:id', async (req, res, next) => {
   try {
     const item = await Item.findByPk(req.params.id)

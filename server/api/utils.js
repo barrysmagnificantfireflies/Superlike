@@ -1,17 +1,31 @@
 const {Order, User} = require('../db/models')
 
 function isAdmin(req, res, next) {
-  if (req.user.isAdmin) {
+  if (req.user && req.user.isAdmin) {
     next()
+  } else {
+    res.send('not an admin')
   }
-  res.send('not an admin')
 }
 
 function isCorrectUser(req, res, next) {
-  if (req.user.id === req.params.id) {
+  let id = parseInt(req.params.userId)
+  if (req.user && req.user.id === id) {
     next()
+  } else {
+    res.send('Not Correct User')
   }
-  res.send('Not Correct User')
+  console.log('req.user', req.user.id)
+  console.log('params', id)
+}
+
+function isCorrectUserOrAdmin(req, res, next) {
+  let id = parseInt(req.params.userId)
+  if (req.user && (req.user.isAdmin || req.user.id === id)) {
+    next()
+  } else {
+    res.send('Not correct user or admin')
+  }
 }
 
 async function doesCartExist(req, res, next) {
@@ -38,5 +52,6 @@ module.exports = {
   isAdmin,
   isCorrectUser,
   doesCartExist,
-  isUser
+  isUser,
+  isCorrectUserOrAdmin
 }
