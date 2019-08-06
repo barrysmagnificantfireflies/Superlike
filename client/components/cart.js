@@ -2,10 +2,6 @@ import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import {getCartThunk, emptyCartThunk, removeItemThunk} from './../store/cart'
 import {getProductsThunk} from '../store/productList'
-import Card from '@material-ui/core/Card'
-import CardContent from '@material-ui/core/CardContent'
-import CardMedia from '@material-ui/core/CardMedia'
-import Typography from '@material-ui/core/Typography'
 
 class Cart extends Component {
   constructor(props) {
@@ -60,7 +56,7 @@ class Cart extends Component {
                     />
                     <p>{item.name}</p>
                     <p>
-                      <button onClick={this.removeItem(item.id)} align="right">
+                      <button onClick={() => this.removeItem(item.id)}>
                         Remove Item
                       </button>
                     </p>
