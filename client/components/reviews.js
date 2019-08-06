@@ -10,7 +10,9 @@ export default class Reviews extends Component {
   render() {
     return (
       <div>
-        <h1 align="center">Hear from satisifed customers!</h1>
+        <h1 align="center" style={{fontSize: '72px'}}>
+          Hear from satisifed customers!
+        </h1>
         <Grid
           align="center"
           container
