@@ -111,7 +111,7 @@ const AuthForm = props => {
               </Link>
             </Grid>
             <Grid item>
-              <ResponseFacebook>Test!</ResponseFacebook>
+              {/* <ResponseFacebook>Test!</ResponseFacebook> */}
               <a href="/auth/google">{displayName} with Google</a>
             </Grid>
           </Grid>

@@ -4,7 +4,7 @@ const db = require('../server/db')
 const {User, Item, Order, OrderItem} = require('../server/db/models')
 
 const users = [
-  {email: 'cody@email.com', password: '123', isAdmin: true},
+  {email: 'cody@email.com', password: '123', isAdmin: false},
   {email: 'murphy@email.com', password: '123', isAdmin: false}
 ]
 
@@ -35,13 +35,11 @@ const items = [
   },
   {
     category: 'Romantic',
-    name: 'DogLover3092',
-    imageUrl:
-      'https://cdn2.littlethings.com/app/uploads/2017/05/cute-dog-golden-retriever-600x600.jpg',
+    name: 'qtpi',
+    imageUrl: 'https://i.imgur.com/dGxpRkf.jpg',
     price: '5.00',
-    quantity: 50,
-    description:
-      'Recently single dog dad looking for someone to give all my doggos the pets'
+    quantity: 51,
+    description: `Are you French? Because Eiffel for you <3`
   },
   {
     category: 'Romantic',
