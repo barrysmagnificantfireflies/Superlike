@@ -4,7 +4,7 @@ const db = require('../server/db')
 const {User, Item, Order, OrderItem} = require('../server/db/models')
 
 const users = [
-  {email: 'cody@email.com', password: '123', isAdmin: false},
+  {email: 'cody@email.com', password: '123', isAdmin: true},
   {email: 'murphy@email.com', password: '123', isAdmin: false}
 ]
 
