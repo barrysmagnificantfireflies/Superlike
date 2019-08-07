@@ -43,20 +43,21 @@ router.post('/', doesCartExist, async (req, res, next) => {
 
 //need to secure with something
 router.put('/', async (req, res, next) => {
+  const request = req.body
   try {
-    let cart = await Order.findCart(req.body.userId)
+    let cart = await Order.findCart(request.userId)
     if (!cart) {
-      cart = await Order.newCart(req.body.userId)
+      cart = await Order.newCart(request.userId)
     }
     const orderItem = await OrderItem.findOrCreate({
       where: {
         orderId: cart.id,
-        itemId: req.body.itemId
+        itemId: request.itemId
       },
       defaults: {
         orderId: cart.id,
-        itemId: req.body.itemId,
-        price: parseInt(req.body.price),
+        itemId: request.itemId,
+        price: parseInt(request.price),
         quantity: 1
       }
     })
@@ -70,9 +71,10 @@ router.put('/', async (req, res, next) => {
 })
 
 router.put('/remove-item', async (req, res, next) => {
+  const request = req.body
   try {
-    const userId = req.body.userId
-    const itemId = req.body.itemId
+    const userId = request.userId
+    const itemId = request.itemId
     let order = await Order.findCart(userId)
     await OrderItem.removeItem(order.id, itemId)
     const cart = await Order.findCart(userId)
