@@ -6,7 +6,6 @@ import {logout} from '../store'
 import AppBar from '@material-ui/core/AppBar'
 import Toolbar from '@material-ui/core/Toolbar'
 import Typography from '@material-ui/core/Typography'
-
 const Navbar = ({handleClick, isLoggedIn}) => (
   <div>
     <AppBar position="static" style={{background: '#90C0AC'}}>
