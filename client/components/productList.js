@@ -13,7 +13,7 @@ class ProductList extends Component {
   render() {
     return (
       <div>
-        <h1 align="center">List of Products</h1>
+        <h1 align="center">Profiles</h1>
         <Grid container spacing={24} style={{padding: 24}}>
           {Array.isArray(this.props.products) &&
             this.props.products.map(product => (
