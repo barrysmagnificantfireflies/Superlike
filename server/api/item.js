@@ -13,8 +13,9 @@ router.get('/', async (req, res, next) => {
 })
 
 router.put('/:itemId/edit', async (req, res, next) => {
+  const request = req.body
   try {
-    const updatedItem = await Item.update(req.body)
+    const updatedItem = await Item.update(request)
     res.json(updatedItem)
   } catch (error) {
     console.error(error)
@@ -30,16 +31,18 @@ router.get('/:id', async (req, res, next) => {
   }
 })
 router.post('/', isAdmin, async (req, res, next) => {
+  const request = req.body
   try {
-    const newItem = await Item.create(req.body)
+    const newItem = await Item.create(request)
     res.json(newItem)
   } catch (error) {
     next(error)
   }
 })
 router.put('/', isAdmin, async (req, res, next) => {
+  const request = req.body
   try {
-    const updatedItem = await Item.update(req.body)
+    const updatedItem = await Item.update(request)
     res.json(updatedItem)
   } catch (error) {
     next(error)
@@ -47,8 +50,9 @@ router.put('/', isAdmin, async (req, res, next) => {
 })
 
 router.delete('/', isAdmin, async (req, res, next) => {
+  const request = req.body
   try {
-    const deletedItem = await Item.destroy(req.body)
+    const deletedItem = await Item.destroy(request)
     res.json(deletedItem)
   } catch (error) {
     next(error)

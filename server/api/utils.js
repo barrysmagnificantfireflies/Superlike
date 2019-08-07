@@ -20,7 +20,8 @@ function isCorrectUser(req, res, next) {
 }
 
 function isCorrectUserOrAdmin(req, res, next) {
-  let id = parseInt(req.params.userId)
+  const request = req.params
+  let id = parseInt(request.userId)
   if (req.user && (req.user.isAdmin || req.user.id === id)) {
     next()
   } else {
@@ -37,8 +38,9 @@ async function doesCartExist(req, res, next) {
 }
 
 async function isUser(req, res, next) {
+  const request = req.body
   try {
-    const user = await User.findbyPk(req.body.user.id)
+    const user = await User.findbyPk(request.user.id)
     if (user) {
       next()
     }

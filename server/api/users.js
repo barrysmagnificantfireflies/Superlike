@@ -29,8 +29,9 @@ router.get('/:id', isUser, async (req, res, next) => {
 })
 
 router.post('/', async (req, res, next) => {
+  const request = req.body
   try {
-    const createdUser = await User.create(req.body)
+    const createdUser = await User.create(request)
     res.json(createdUser)
   } catch (error) {
     next(error)
@@ -38,10 +39,10 @@ router.post('/', async (req, res, next) => {
 })
 
 router.put('/:userId', async (req, res, next) => {
-  console.log('req.body', req.body)
+  const request = req.body
   try {
     await User.update(
-      {email: req.body.email, imageUrl: req.body.imageUrl},
+      {email: request.email, imageUrl: request.imageUrl},
       {
         where: {
           id: req.params.userId
@@ -55,9 +56,10 @@ router.put('/:userId', async (req, res, next) => {
 })
 
 router.put('/:userId/checkout', async (req, res, next) => {
+  const request = req.params
   try {
-    await Order.checkout(req.params.userId) //flips the isPurchased value on the cart to true
-    await Order.newCart(req.params.userId) //creates a new cart so that there is always a cart in the DB
+    await Order.checkout(request.userId) //flips the isPurchased value on the cart to true
+    await Order.newCart(request.userId) //creates a new cart so that there is always a cart in the DB
     res.sendStatus(201)
   } catch (error) {
     next(error)
@@ -65,12 +67,13 @@ router.put('/:userId/checkout', async (req, res, next) => {
 })
 
 router.post('/charge', async (req, res, next) => {
+  const request = req.body
   try {
     let {status} = await stripe.charges.create({
-      amount: req.body.total,
+      amount: request.total,
       currency: 'usd',
       description: 'An example charge',
-      source: req.body.source
+      source: request.source
     })
     res.json({status})
   } catch (err) {
@@ -79,8 +82,9 @@ router.post('/charge', async (req, res, next) => {
 })
 
 router.delete('/', isCorrectUserOrAdmin, async (req, res, next) => {
+  const request = req.body
   try {
-    const destroyedUser = await User.destroy(req.body)
+    const destroyedUser = await User.destroy(request)
     res.json(destroyedUser)
   } catch (error) {
     next(error)

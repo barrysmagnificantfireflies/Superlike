@@ -4,13 +4,14 @@ const Order = require('../db/models/order')
 module.exports = router
 
 router.post('/login', async (req, res, next) => {
+  const request = req.body
   try {
-    const user = await User.findOne({where: {email: req.body.email}})
+    const user = await User.findOne({where: {email: request.email}})
     if (!user) {
-      console.log('No such user found:', req.body.email)
+      console.log('No such user found:', request.email)
       res.status(401).send('Wrong username and/or password')
-    } else if (!user.correctPassword(req.body.password)) {
-      console.log('Incorrect password for user:', req.body.email)
+    } else if (!user.correctPassword(request.password)) {
+      console.log('Incorrect password for user:', request.email)
       res.status(401).send('Wrong username and/or password')
     } else {
       req.login(user, err => (err ? next(err) : res.json(user)))
@@ -21,9 +22,9 @@ router.post('/login', async (req, res, next) => {
 })
 
 router.post('/signup', async (req, res, next) => {
+  const request = req.body
   try {
-    // split req.body
-    const user = await User.create(req.body)
+    const user = await User.create(request)
     await Order.newCart(user.id)
     req.login(user, err => (err ? next(err) : res.json(user)))
   } catch (err) {
