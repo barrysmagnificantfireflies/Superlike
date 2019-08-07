@@ -44,7 +44,10 @@ router.post('/', doesCartExist, async (req, res, next) => {
 //need to secure with something
 router.put('/', async (req, res, next) => {
   try {
-    const cart = await Order.findCart(req.body.userId)
+    let cart = await Order.findCart(req.body.userId)
+    if (!cart) {
+      cart = await Order.newCart(req.body.userId)
+    }
     const orderItem = await OrderItem.findOrCreate({
       where: {
         orderId: cart.id,
