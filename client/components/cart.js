@@ -43,10 +43,11 @@ class Cart extends Component {
               'Cart is empty'
             ) : (
               <div>
-                <div>You have {cart.length} items in cart. </div>
+                <div>You have {cart.length} products in cart. </div>
 
                 {cart.map(item => (
                   <div
+                    key={item.id}
                     style={{
                       width: 400,
                       height: 600,

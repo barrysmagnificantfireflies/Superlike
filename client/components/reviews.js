@@ -11,7 +11,7 @@ export default class Reviews extends Component {
     return (
       <div>
         <h1 align="center" style={{fontSize: '72px'}}>
-          Hear from satisifed customers!
+          Hear from satisfed customers!
         </h1>
         <Grid
           align="center"
@@ -59,7 +59,7 @@ export default class Reviews extends Component {
                 variant="headline"
                 component="h2"
               >
-                - Sagar
+                - Ben
               </Typography>
               <Typography
                 align="center"
@@ -74,7 +74,7 @@ export default class Reviews extends Component {
           <Card>
             <CardMedia
               style={{height: 300, width: 300}}
-              image="https://files.slack.com/files-pri/T024FPYBQ-FL7LUU17B/image_from_ios.jpg"
+              image="https://i.imgur.com/I1KPnLi.jpg"
             />
             <CardContent>
               <Typography
